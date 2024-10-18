@@ -398,22 +398,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#who-to-contact" class="md-nav__link">
+  <a href="#connecting-to-the-server" class="md-nav__link">
     <span class="md-ellipsis">
-      Who to contact?
+      Connecting to the server
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-access-the-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      How to access the server?
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How to access the server?">
+    <nav class="md-nav" aria-label="Connecting to the server">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -422,6 +413,54 @@
       Terminal
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Terminal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transferring-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transferring files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transferring files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-from-local-to-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer from local to server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfer-file-from-server-to-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer file from server to local
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -524,22 +563,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#who-to-contact" class="md-nav__link">
+  <a href="#connecting-to-the-server" class="md-nav__link">
     <span class="md-ellipsis">
-      Who to contact?
+      Connecting to the server
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-access-the-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      How to access the server?
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How to access the server?">
+    <nav class="md-nav" aria-label="Connecting to the server">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -548,6 +578,54 @@
       Terminal
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Terminal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transferring-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transferring files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transferring files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transfer-from-local-to-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer from local to server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfer-file-from-server-to-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer file from server to local
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -581,10 +659,36 @@
 
 
 <h1 id="access">Access</h1>
-<h2 id="who-to-contact">Who to contact?</h2>
-<h2 id="how-to-access-the-server">How to access the server?</h2>
+<p>In order to access the server, you need to have an account. Contact TBD with
+your basic information and SODAS affiliation, and they will walk you through
+the process.</p>
+<h2 id="connecting-to-the-server">Connecting to the server</h2>
+<p>You can connect to the server using SSH, either through the terminal or vscode.</p>
 <h3 id="terminal">Terminal</h3>
+<h4 id="ssh">SSH</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>-L<span class="w"> </span>&lt;local-port&gt;:localhost:&lt;remote-port&gt;<span class="w"> </span>&lt;username&gt;@sodascomp01fl.unicph.domain
+</span></code></pre></div>
+<p>To connect locally to the server on port 8000 with the user abc123, do:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8000</span>:localhost:8000<span class="w"> </span>abc123@sodascomp01fl.unicph.domain
+</span></code></pre></div>
+<p>Once you have a connection established, you can host a <a href="/server/usage#jupyter-lab">jupyter lab</a> server on the server and connect to it from your local machine.</p>
+<h4 id="transferring-files">Transferring files</h4>
+<h5 id="transfer-from-local-to-server">Transfer from local to server</h5>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>scp<span class="w"> </span>/path/to/file<span class="w"> </span>&lt;username&gt;@sodascomp01fl.unicph.domain:/path/to/destination
+</span></code></pre></div>
+<p>To move a text file in documents to your H-drive which is mounted on the
+server by default, do:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>scp<span class="w"> </span>/documents/test.txt<span class="w"> </span>abc123@sodascomp01fl.unicph.doman:/ucph/hdir
+</span></code></pre></div>
+<h5 id="transfer-file-from-server-to-local">Transfer file from server to local</h5>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>scp<span class="w"> </span>&lt;username&gt;@sodascomp01fl.unicph.domain:/path/to/file<span class="w"> </span>/path/to/destination
+</span></code></pre></div>
+<p>To move a text file from the H-drive on the server to your local documents
+folder, do:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>scp<span class="w"> </span>abc123@sodascomp01fl.unicph.doman:/ucph/hdir/test.txt<span class="w"> </span>/documents
+</span></code></pre></div>
 <h3 id="vscode">VSCode</h3>
+<p>TBD</p>
 
 
 
@@ -652,7 +756,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tracking", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tracking", "navigation.tabs", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
