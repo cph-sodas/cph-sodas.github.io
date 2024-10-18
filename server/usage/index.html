@@ -40,8 +40,8 @@
       
         
         
-        
-        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -655,13 +655,12 @@
 <h3 id="cache">Cache</h3>
 <h2 id="python-dependency-management">Python dependency management</h2>
 <h2 id="jupyter-lab">Jupyter Lab</h2>
+<p>TBD: Describe how to install Jupyter Lab as user.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>jupyter-lab<span class="w"> </span>--no-browser<span class="w"> </span>--port<span class="w"> </span>&lt;port&gt;
 </span></code></pre></div>
 <p>Where <port> is the localhost port you specified when connecting to the server.</p>
 <p>Then copy the generated link and paste it in your local computer's browsers.</p>
-<p>I.e:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>http://127.0.0.1:&lt;port&gt;/lab?token=abcd1234...
-</span></code></pre></div>
+<p>I.e: <code>http://127.0.0.1:&lt;port&gt;/lab?token=abcd1234...</code></p>
 <h2 id="docker">Docker</h2>
 <h2 id="slurm">Slurm</h2>
 
