@@ -1,1 +1,0 @@
-# sodas-ku.github.io
