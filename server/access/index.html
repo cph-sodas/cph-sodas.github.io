@@ -267,6 +267,26 @@
         
   
   
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../guides/VPN/" class="md-tabs__link">
+          
+  
+    
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
     
   
   
@@ -343,6 +363,76 @@
       
   
   
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/VPN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VPN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -373,7 +463,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           
@@ -389,14 +479,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Server
           </label>
@@ -718,33 +808,32 @@
 
 
 <h1 id="access">Access</h1>
-<p>In order to access the server, you need to have an account. Contact TBD with
-your basic information and SODAS affiliation, and they will walk you through
-the process.</p>
+<p>In order to access the server, you need to contact TBD with your basic
+information and SODAS affiliation, and they will setup up an account for you.</p>
 <h2 id="connecting-to-the-server">Connecting to the server</h2>
-<p>You can connect to the server using SSH, either through the terminal or vscode.</p>
+<p>First of all, you need to connect to the <a href="/guides/VPN">VPN</a>.</p>
+<p>You can connect to the server using SSH, either through the terminal or VSCode.</p>
 <h3 id="terminal">Terminal</h3>
 <h4 id="ssh">SSH</h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>-L<span class="w"> </span>&lt;local-port&gt;:localhost:&lt;remote-port&gt;<span class="w"> </span>&lt;username&gt;@sodascomp01fl.unicph.domain
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>-L<span class="w"> </span>&lt;local-port&gt;:localhost:&lt;remote-port&gt;<span class="w"> </span>&lt;username&gt;@sodashead01fl.unicph.domain
 </span></code></pre></div>
 <p>To connect locally to the server on port 8000 with the user abc123, do:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8000</span>:localhost:8000<span class="w"> </span>abc123@sodascomp01fl.unicph.domain
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8000</span>:localhost:8000<span class="w"> </span>abc123@sodashead01fl.unicph.domain
 </span></code></pre></div>
-<p>Once you have a connection established, you can host a <a href="/server/usage#jupyter-lab">jupyter lab</a> server on the server and connect to it from your local machine.</p>
 <h4 id="transferring-files">Transferring files</h4>
 <h5 id="transfer-from-local-to-server">Transfer from local to server</h5>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>scp<span class="w"> </span>/path/to/file<span class="w"> </span>&lt;username&gt;@sodascomp01fl.unicph.domain:/path/to/destination
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>scp<span class="w"> </span>/path/to/file<span class="w"> </span>&lt;username&gt;@sodashead01fl.unicph.domain:/path/to/destination
 </span></code></pre></div>
 <p>To move a text file in documents to your H-drive which is mounted on the
 server by default, do:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>scp<span class="w"> </span>/documents/test.txt<span class="w"> </span>abc123@sodascomp01fl.unicph.doman:/ucph/hdir
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>scp<span class="w"> </span>/documents/test.txt<span class="w"> </span>abc123@sodashead01fl.unicph.doman:/ucph/hdir
 </span></code></pre></div>
 <h5 id="transfer-file-from-server-to-local">Transfer file from server to local</h5>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>scp<span class="w"> </span>&lt;username&gt;@sodascomp01fl.unicph.domain:/path/to/file<span class="w"> </span>/path/to/destination
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>scp<span class="w"> </span>&lt;username&gt;@sodashead01fl.unicph.domain:/path/to/file<span class="w"> </span>/path/to/destination
 </span></code></pre></div>
 <p>To move a text file from the H-drive on the server to your local documents
 folder, do:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>scp<span class="w"> </span>abc123@sodascomp01fl.unicph.doman:/ucph/hdir/test.txt<span class="w"> </span>/documents
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>scp<span class="w"> </span>abc123@sodashead01fl.unicph.doman:/ucph/hdir/test.txt<span class="w"> </span>/documents
 </span></code></pre></div>
 <h3 id="vscode">VSCode</h3>
 <p>TBD</p>
@@ -768,7 +857,7 @@ folder, do:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 25, 2024</span>
   </span>
 
     
