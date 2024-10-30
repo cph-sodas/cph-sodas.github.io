@@ -596,6 +596,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="zsh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building from source
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -893,6 +908,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="zsh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building from source
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1094,6 +1124,21 @@ probably not the right way. Maybe try installing zsh from source</p>
 <p>create a symlink to the zsh already installed</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ln<span class="w"> </span>-s<span class="w"> </span>/opt/softare/zsh/5.9/bin/zsh<span class="w"> </span>~/.local/bin/zsh
 </span></code></pre></div>
+<h5 id="building-from-source">Building from source</h5>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>mkdir<span class="w"> </span>downloads
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">cd</span><span class="w"> </span>downloads
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>wget<span class="w"> </span>-O<span class="w"> </span>zsh.tar.xz<span class="w"> </span>https://sourceforge.net/projects/zsh/files/latest/download
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>mkdir<span class="w"> </span>zsh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unxz<span class="w"> </span>zsh.tar.xz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>zsh.tar<span class="w"> </span>-C<span class="w"> </span>zsh<span class="w"> </span>--strip-components<span class="w"> </span><span class="m">1</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">cd</span><span class="w"> </span>zsh
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>make
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>make<span class="w"> </span>install
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>autoload<span class="w"> </span>-Uz<span class="w"> </span>compinit<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>compinit
+</span></code></pre></div>
 <h3 id="environment-variables">Environment Variables</h3>
 <h2 id="docker">Docker</h2>
 <h2 id="python-dependency-management">Python dependency management</h2>
@@ -1104,11 +1149,11 @@ probably not the right way. Maybe try installing zsh from source</p>
 <p>Follow the guide at <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux">GitHub</a>.</p>
 <h4 id="ssh-config">SSH Config</h4>
 <p>Create a config file at <code>~/.ssh/config</code> and add the following lines:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Host github.com
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    HostName ssh.github.com
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    PreferredAuthentications publickey
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    IdentityFile ~/.ssh/id_ed25519
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    Port 443
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Host github.com
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    HostName ssh.github.com
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    PreferredAuthentications publickey
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    IdentityFile ~/.ssh/id_ed25519
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    Port 443
 </span></code></pre></div>
 
 
