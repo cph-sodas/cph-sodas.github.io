@@ -763,9 +763,7 @@
 information and SODAS affiliation, and they will setup up an account for you.</p>
 <h2 id="connecting-to-the-server">Connecting to the server</h2>
 <p>First of all, you need to be connected to UCPH's network through a VPN. See the
-<a href="https://kunet.ku.dk/medarbejderguide/Sider/It/Fjernadgang-vpn.aspx">guides</a>
-on the intranet. Our friends at DIKU also have a
-<a href="https://github.com/diku-dk/howto/blob/main/vpn.md#accessing-the-ku-vpn-on-linux-and-macos-with-openconnect">guide</a>
+<a href="https://kunet.ku.dk/medarbejderguide/Sider/It/Fjernadgang-vpn.aspx">guides</a> on the intranet. Our friends at DIKU also have a <a href="https://github.com/diku-dk/howto/blob/main/vpn.md#accessing-the-ku-vpn-on-linux-and-macos-with-openconnect">guide</a>
 for using a VPN with UCPH's network for linux and mac users.</p>
 <p>You connect to the server using SSH. See tips on SSH <a href="../tips/#ssh">here</a>.
 An SSH connection to the server can be established either through your
@@ -793,7 +791,10 @@ folder, do:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>scp<span class="w"> </span>abc123@sodashead01fl.unicph.doman:/ucph/hdir/test.txt<span class="w"> </span>/documents
 </span></code></pre></div>
 <h3 id="vscode">VSCode</h3>
-<p>TBD</p>
+<p>You can access the server through VSCode by installing the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH</a> extension.
+Follow the instructions in the <a href="https://code.visualstudio.com/docs/remote/ssh">documentation</a> to connect to the server.</p>
+<p>Then, when connected, install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">python</a> and <a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">juyter</a> extensions on the remote.</p>
+<p>To make the compute resources from slurm available in vscode, see under <a href="/server/usage#vscode">usage</a>.</p>
 <h2 id="management">Management</h2>
 <p>Display unicph ID information</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>kuid<span class="w"> </span>&lt;username&gt;

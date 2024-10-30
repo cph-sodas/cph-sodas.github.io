@@ -1044,15 +1044,22 @@ drives), you must change a default setting by running</p>
 <p>which will create a local environment in the <code>.venv</code> folder.</p>
 <h5 id="using-your-environments">Using your environments</h5>
 <p>First you must activate your environment.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Add a function to your to easily activate virtual environments from anywhere on the server:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;function activate() { if [ -n &quot;$1&quot; ]; then source ~/.virtualenvs/&quot;$1&quot;/bin/activate; else source ./.venv/bin/activate; fi; }&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </span></code></pre></div>
-<p>This function will activate the virtual environment in the current directory, or from the name of the virtual environment.</p>
-</div>
-<p>TBD: (should these be stored en <code>people/</code> or <code>apps/</code>).</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>uv<span class="w"> </span>init
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>!!! tip
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    Add a function to your to easily activate virtual environments from anywhere on the server:
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    ```bash
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    echo &#39;function activate() { if [ -n &quot;$1&quot; ]; then source ~/.virtualenvs/&quot;$1&quot;/bin/activate; else source ./.venv/bin/activate; fi; }&#39; &gt;&gt; ~/.bashrc
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    ```
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    This function will activate the virtual environment in the current directory, or from the name of the virtual environment.
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>TBD: (should these be stored en `people/` or `apps/`).
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>```bash
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>uv init
 </span></code></pre></div>
 <p>This will create some boiler plate, which will allow you to take advantage of uv's dependency management.</p>
 <p>Then, to add a project dependency, you can run:</p>
