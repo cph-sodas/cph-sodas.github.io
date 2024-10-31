@@ -565,6 +565,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#extra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extra
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -760,6 +769,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#extra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extra
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -905,12 +923,13 @@ some simple commands which may help you work your way around the server.</p>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">cd</span><span class="w"> </span>~<span class="w">                </span><span class="c1"># Go to your home directory</span>
 </span></code></pre></div>
 <h3 id="working-with-files-and-folders">Working with Files and Folders</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdir<span class="w"> </span>FolderName<span class="w">    </span><span class="c1"># Create a new folder</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>touch<span class="w"> </span>filename.txt<span class="w">  </span><span class="c1"># Create a new file</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>cp<span class="w"> </span>file1<span class="w"> </span>file2<span class="w">      </span><span class="c1"># Copy file1 to file2</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>mv<span class="w"> </span>file1<span class="w"> </span>file2<span class="w">      </span><span class="c1"># Move or rename file1 to file2</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>rm<span class="w"> </span>filename<span class="w">         </span><span class="c1"># Delete a file (be careful, no recycling bin!)</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>rm<span class="w"> </span>-r<span class="w"> </span>foldername<span class="w">    </span><span class="c1"># Delete a folder and its contents</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdir<span class="w"> </span>FolderName<span class="w">        </span><span class="c1"># Create a new folder</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>touch<span class="w"> </span>filename.txt<span class="w">      </span><span class="c1"># Create a new file</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>cp<span class="w"> </span>file1<span class="w"> </span>file2<span class="w">          </span><span class="c1"># Copy file1 to file2</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>mv<span class="w"> </span>file1<span class="w"> </span>file2<span class="w">          </span><span class="c1"># Move or rename file1 to file2</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>rm<span class="w"> </span>filename<span class="w">             </span><span class="c1"># Delete a file (be careful, no recycling bin!)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>rm<span class="w"> </span>-r<span class="w"> </span>foldername<span class="w">        </span><span class="c1"># Delete a folder and its contents</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;search term&quot;</span><span class="w"> </span>.<span class="w"> </span><span class="c1"># Search for a term in all files in current directory</span>
 </span></code></pre></div>
 <h3 id="viewing-file-contents">Viewing File Contents</h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cat<span class="w"> </span>filename<span class="w">       </span><span class="c1"># Display entire file content</span>
@@ -922,6 +941,11 @@ some simple commands which may help you work your way around the server.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>clear<span class="w">              </span><span class="c1"># Clear the terminal screen</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">history</span><span class="w">            </span><span class="c1"># Show command history</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>man<span class="w"> </span><span class="nb">command</span><span class="w">        </span><span class="c1"># Show manual for a command</span>
+</span></code></pre></div>
+<h3 id="extra">Extra</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uuidgen<span class="w">           </span><span class="c1"># Generate a random UUID</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cal<span class="w">               </span><span class="c1"># Show a simple calendar</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>btop<span class="w">              </span><span class="c1"># Interactive process viewer</span>
 </span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -965,25 +989,25 @@ some simple commands which may help you work your way around the server.</p>
 available. A quick way to get an overview of a command is to use the <code>-h</code> or
 <code>--help</code> flags, which provide brief explanations.
 E.g. for the <code>ls</code> command:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">[</span>abc123@sodashead01fl<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>ls<span class="w"> </span>--help
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Usage:<span class="w"> </span>ls<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span><span class="o">[</span>FILE<span class="o">]</span>...
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>List<span class="w"> </span>information<span class="w"> </span>about<span class="w"> </span>the<span class="w"> </span>FILEs<span class="w"> </span><span class="o">(</span>the<span class="w"> </span>current<span class="w"> </span>directory<span class="w"> </span>by<span class="w"> </span>default<span class="o">)</span>.
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Sort<span class="w"> </span>entries<span class="w"> </span>alphabetically<span class="w"> </span><span class="k">if</span><span class="w"> </span>none<span class="w"> </span>of<span class="w"> </span>-cftuvSUX<span class="w"> </span>nor<span class="w"> </span>--sort<span class="w"> </span>is<span class="w"> </span>specified.
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Mandatory<span class="w"> </span>arguments<span class="w"> </span>to<span class="w"> </span>long<span class="w"> </span>options<span class="w"> </span>are<span class="w"> </span>mandatory<span class="w"> </span><span class="k">for</span><span class="w"> </span>short<span class="w"> </span>options<span class="w"> </span>too.
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span>-a,<span class="w"> </span>--all<span class="w">                  </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>ignore<span class="w"> </span>entries<span class="w"> </span>starting<span class="w"> </span>with<span class="w"> </span>.
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span>-A,<span class="w"> </span>--almost-all<span class="w">           </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>list<span class="w"> </span>implied<span class="w"> </span>.<span class="w"> </span>and<span class="w"> </span>..
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span>--author<span class="w">               </span>with<span class="w"> </span>-l,<span class="w"> </span>print<span class="w"> </span>the<span class="w"> </span>author<span class="w"> </span>of<span class="w"> </span>each<span class="w"> </span>file
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span>-b,<span class="w"> </span>--escape<span class="w">               </span>print<span class="w"> </span>C-style<span class="w"> </span>escapes<span class="w"> </span><span class="k">for</span><span class="w"> </span>nongraphic<span class="w"> </span>characters
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span>--block-size<span class="o">=</span>SIZE<span class="w">      </span>with<span class="w"> </span>-l,<span class="w"> </span>scale<span class="w"> </span>sizes<span class="w"> </span>by<span class="w"> </span>SIZE<span class="w"> </span>when<span class="w"> </span>printing<span class="w"> </span>them<span class="p">;</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">                               </span>e.g.,<span class="w"> </span><span class="s1">&#39;--block-size=M&#39;</span><span class="p">;</span><span class="w"> </span>see<span class="w"> </span>SIZE<span class="w"> </span>format<span class="w"> </span>below
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">  </span>-B,<span class="w"> </span>--ignore-backups<span class="w">       </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>list<span class="w"> </span>implied<span class="w"> </span>entries<span class="w"> </span>ending<span class="w"> </span>with<span class="w"> </span>~
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span>-c<span class="w">                         </span>with<span class="w"> </span>-lt:<span class="w"> </span>sort<span class="w"> </span>by,<span class="w"> </span>and<span class="w"> </span>show,<span class="w"> </span>ctime<span class="w"> </span><span class="o">(</span><span class="nb">time</span><span class="w"> </span>of<span class="w"> </span>last
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">                               </span>modification<span class="w"> </span>of<span class="w"> </span>file<span class="w"> </span>status<span class="w"> </span>information<span class="o">)</span><span class="p">;</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">                               </span>with<span class="w"> </span>-l:<span class="w"> </span>show<span class="w"> </span>ctime<span class="w"> </span>and<span class="w"> </span>sort<span class="w"> </span>by<span class="w"> </span>name<span class="p">;</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">                               </span>otherwise:<span class="w"> </span>sort<span class="w"> </span>by<span class="w"> </span>ctime,<span class="w"> </span>newest<span class="w"> </span>first
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">  </span>-C<span class="w">                         </span>list<span class="w"> </span>entries<span class="w"> </span>by<span class="w"> </span>columns
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="c1"># ... Rest omitted for brievity</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">[</span>abc123@sodashead01fl<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>ls<span class="w"> </span>--help
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Usage:<span class="w"> </span>ls<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span><span class="o">[</span>FILE<span class="o">]</span>...
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>List<span class="w"> </span>information<span class="w"> </span>about<span class="w"> </span>the<span class="w"> </span>FILEs<span class="w"> </span><span class="o">(</span>the<span class="w"> </span>current<span class="w"> </span>directory<span class="w"> </span>by<span class="w"> </span>default<span class="o">)</span>.
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Sort<span class="w"> </span>entries<span class="w"> </span>alphabetically<span class="w"> </span><span class="k">if</span><span class="w"> </span>none<span class="w"> </span>of<span class="w"> </span>-cftuvSUX<span class="w"> </span>nor<span class="w"> </span>--sort<span class="w"> </span>is<span class="w"> </span>specified.
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Mandatory<span class="w"> </span>arguments<span class="w"> </span>to<span class="w"> </span>long<span class="w"> </span>options<span class="w"> </span>are<span class="w"> </span>mandatory<span class="w"> </span><span class="k">for</span><span class="w"> </span>short<span class="w"> </span>options<span class="w"> </span>too.
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span>-a,<span class="w"> </span>--all<span class="w">                  </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>ignore<span class="w"> </span>entries<span class="w"> </span>starting<span class="w"> </span>with<span class="w"> </span>.
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span>-A,<span class="w"> </span>--almost-all<span class="w">           </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>list<span class="w"> </span>implied<span class="w"> </span>.<span class="w"> </span>and<span class="w"> </span>..
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">      </span>--author<span class="w">               </span>with<span class="w"> </span>-l,<span class="w"> </span>print<span class="w"> </span>the<span class="w"> </span>author<span class="w"> </span>of<span class="w"> </span>each<span class="w"> </span>file
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span>-b,<span class="w"> </span>--escape<span class="w">               </span>print<span class="w"> </span>C-style<span class="w"> </span>escapes<span class="w"> </span><span class="k">for</span><span class="w"> </span>nongraphic<span class="w"> </span>characters
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">      </span>--block-size<span class="o">=</span>SIZE<span class="w">      </span>with<span class="w"> </span>-l,<span class="w"> </span>scale<span class="w"> </span>sizes<span class="w"> </span>by<span class="w"> </span>SIZE<span class="w"> </span>when<span class="w"> </span>printing<span class="w"> </span>them<span class="p">;</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">                               </span>e.g.,<span class="w"> </span><span class="s1">&#39;--block-size=M&#39;</span><span class="p">;</span><span class="w"> </span>see<span class="w"> </span>SIZE<span class="w"> </span>format<span class="w"> </span>below
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span>-B,<span class="w"> </span>--ignore-backups<span class="w">       </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>list<span class="w"> </span>implied<span class="w"> </span>entries<span class="w"> </span>ending<span class="w"> </span>with<span class="w"> </span>~
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span>-c<span class="w">                         </span>with<span class="w"> </span>-lt:<span class="w"> </span>sort<span class="w"> </span>by,<span class="w"> </span>and<span class="w"> </span>show,<span class="w"> </span>ctime<span class="w"> </span><span class="o">(</span><span class="nb">time</span><span class="w"> </span>of<span class="w"> </span>last
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">                               </span>modification<span class="w"> </span>of<span class="w"> </span>file<span class="w"> </span>status<span class="w"> </span>information<span class="o">)</span><span class="p">;</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">                               </span>with<span class="w"> </span>-l:<span class="w"> </span>show<span class="w"> </span>ctime<span class="w"> </span>and<span class="w"> </span>sort<span class="w"> </span>by<span class="w"> </span>name<span class="p">;</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">                               </span>otherwise:<span class="w"> </span>sort<span class="w"> </span>by<span class="w"> </span>ctime,<span class="w"> </span>newest<span class="w"> </span>first
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span>-C<span class="w">                         </span>list<span class="w"> </span>entries<span class="w"> </span>by<span class="w"> </span>columns
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="c1"># ... Rest omitted for brievity</span>
 </span></code></pre></div>
 <h3 id="man-pages">man pages</h3>
 <p>For more detailed information, you can use the <code>man</code> command (short for
@@ -993,22 +1017,22 @@ developers include them.
 E.g. typing <code>man tmux</code> will open the man page for tmux in your manpager of
 choice (<a href="https://man7.org/linux/man-pages/man1/less.1.html">less</a> pr default;
 you go up and down by pressing <code>j</code> and <code>k</code>):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>TMUX(1)                   BSD General Commands Manual                  TMUX(1)
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>NAME
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>     tmux — terminal multiplexer
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>SYNOPSIS
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>     tmux [-2CluvV] [-c shell-command] [-f file] [-L socket-name]
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>          [-S socket-path] [command [flags]]
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>DESCRIPTION
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>     tmux is a terminal multiplexer: it enables a number of terminals to be
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>     created, accessed, and controlled from a single screen.  tmux may be
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>     detached from a screen and continue running in the background, then later
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>     reattached.
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a># ... Rest omitted for brievity
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>TMUX(1)                   BSD General Commands Manual                  TMUX(1)
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>NAME
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>     tmux — terminal multiplexer
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>SYNOPSIS
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>     tmux [-2CluvV] [-c shell-command] [-f file] [-L socket-name]
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>          [-S socket-path] [command [flags]]
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>DESCRIPTION
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>     tmux is a terminal multiplexer: it enables a number of terminals to be
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>     created, accessed, and controlled from a single screen.  tmux may be
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>     detached from a screen and continue running in the background, then later
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>     reattached.
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a># ... Rest omitted for brievity
 </span></code></pre></div>
 <p>Try for instance navigating to the
 <a href="https://man7.org/linux/man-pages/man1/tmux.1.html#DEFAULT_KEY_BINDINGS">DEFAULT KEY BINDINGS</a>
@@ -1023,10 +1047,10 @@ See the <a href="https://tldr.inbrowser.app/pages/common/tar">tldr</a> docs.</p>
 <p>TBD</p>
 <h2 id="management-utilities">Management utilities</h2>
 <p>Display unicph ID information</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>kuid<span class="w"> </span>&lt;username&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>kuid<span class="w"> </span>&lt;username&gt;
 </span></code></pre></div>
 <p>Check server access for specific user</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>id<span class="w"> </span>&lt;username&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="s2">&quot;\n&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>srv-sodas
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>id<span class="w"> </span>&lt;username&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="s2">&quot;\n&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>srv-sodas
 </span></code></pre></div>
 
 
