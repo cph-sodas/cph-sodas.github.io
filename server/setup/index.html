@@ -489,13 +489,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Storage
+      Configuration
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Storage">
+    <nav class="md-nav" aria-label="Configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -506,21 +506,6 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#install-custom-software" class="md-nav__link">
@@ -771,13 +756,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Storage
+      Configuration
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Storage">
+    <nav class="md-nav" aria-label="Configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -788,21 +773,6 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#install-custom-software" class="md-nav__link">
@@ -979,10 +949,10 @@
 environment on the SODAS server.</p>
 <h2 id="projects">Projects</h2>
 <p>All <a href="https://kunet.ku.dk/work-areas/research/Research%20Infrastructure/research-it/ucph-computing-hpc-systems/Pages/default.aspx#collapse-6e12687c-613f-4ac4-9d30-696f72764925">compute projects</a> are stored in the /projects/ folder.</p>
-<p>Make a request for a new project at the <a href="https://serviceportal.ku.dk/HEAT/Modules/SelfService/#serviceCatalog">UCPH service portal</a>.</p>
-<h2 id="storage">Storage</h2>
-<h3 id="shared-cache">Shared cache</h3>
-<p>TBD</p>
+<p>Since the compute server (which is accessed via <a href="/server/usage#slurm">Slurm</a>) does not
+have access to other network drives (i.e. h-drive and s-drives), you must store
+your project data and code in a compute project directory.</p>
+<p>You can make a request for a new project at the <a href="https://serviceportal.ku.dk/HEAT/Modules/SelfService/#serviceCatalog">UCPH service portal</a>.</p>
 <h2 id="configuration">Configuration</h2>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -990,6 +960,8 @@ environment on the SODAS server.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </span></code></pre></div></p>
 </div>
+<h3 id="shared-cache">Shared cache</h3>
+<p>TBD</p>
 <h3 id="install-custom-software">Install custom software</h3>
 <h4 id="uv">uv</h4>
 <p><a href="https://docs.astral.sh/uv/getting-started/installation/">Install</a> <code>uv</code>:</p>
