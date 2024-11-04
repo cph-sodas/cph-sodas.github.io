@@ -754,29 +754,35 @@ An SSH connection to the server can be established either through your
 <a href="#terminal">terminal</a> of choice or e.g. <a href="#vscode">VSCode</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Windows users can use <a href="https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh">Windows Terminal</a> to create ssh connections.</p>
+<p>Windows users can use the build in command prompt, or download <a href="https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh">Windows Terminal</a> for a better experience.</p>
 </div>
 <h3 id="terminal">Terminal</h3>
 <h4 id="ssh">SSH</h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>-L<span class="w"> </span>&lt;local-port&gt;:localhost:&lt;remote-port&gt;<span class="w"> </span>&lt;username&gt;@sodashead01fl.unicph.domain
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>&lt;username&gt;@sodashead01fl.unicph.domain
 </span></code></pre></div>
-<p>To connect locally to the server on port 8000 with the user abc123, do:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8000</span>:localhost:8000<span class="w"> </span>abc123@sodashead01fl.unicph.domain
+<p>To connect locally to the server with the user abc123, do:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh<span class="w"> </span>abc123@sodashead01fl.unicph.domain
 </span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can specify a specific address and port to connect to, eg:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8000</span>:localhost:8000<span class="w"> </span>abc123@sodashead01fl.unicph.domain
+</span></code></pre></div>
+</div>
 <h4 id="transferring-files">Transferring files</h4>
 <h5 id="transfer-from-local-to-server">Transfer from local to server</h5>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>scp<span class="w"> </span>/path/to/file<span class="w"> </span>&lt;username&gt;@sodashead01fl.unicph.domain:/path/to/destination
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>scp<span class="w"> </span>/path/to/file<span class="w"> </span>&lt;username&gt;@sodashead01fl.unicph.domain:/path/to/destination
 </span></code></pre></div>
 <p>To move a text file in documents to your H-drive which is mounted on the
 server by default, do:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>scp<span class="w"> </span>/documents/test.txt<span class="w"> </span>abc123@sodashead01fl.unicph.doman:/ucph/hdir
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>scp<span class="w"> </span>/documents/test.txt<span class="w"> </span>abc123@sodashead01fl.unicph.doman:/ucph/hdir
 </span></code></pre></div>
 <h5 id="transfer-file-from-server-to-local">Transfer file from server to local</h5>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>scp<span class="w"> </span>&lt;username&gt;@sodashead01fl.unicph.domain:/path/to/file<span class="w"> </span>/path/to/destination
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>scp<span class="w"> </span>&lt;username&gt;@sodashead01fl.unicph.domain:/path/to/file<span class="w"> </span>/path/to/destination
 </span></code></pre></div>
 <p>To move a text file from the H-drive on the server to your local documents
 folder, do:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>scp<span class="w"> </span>abc123@sodashead01fl.unicph.doman:/ucph/hdir/test.txt<span class="w"> </span>/documents
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>scp<span class="w"> </span>abc123@sodashead01fl.unicph.doman:/ucph/hdir/test.txt<span class="w"> </span>/documents
 </span></code></pre></div>
 <h3 id="vscode">VSCode</h3>
 <p>You can access the server through VSCode by installing the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH</a> extension.
@@ -803,7 +809,7 @@ Follow the instructions in the <a href="https://code.visualstudio.com/docs/remot
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 31, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 4, 2024</span>
   </span>
 
     
