@@ -1044,36 +1044,26 @@ uv's dependency management.</p>
 <h4 id="zsh">zsh</h4>
 <p>In this step of the guide, we will take you throw setting up zsh
 as your default shell, and installing oh-my-zsh</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>After setting up zsh this way installing oh-my-zsh throws some errors,
-probably not the right way. Building from source works though.</p>
-</div>
-<p>Make sure the necessary directories exist:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.local/bin/
-</span></code></pre></div>
-<p>create a symlink to the zsh already installed</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ln<span class="w"> </span>-s<span class="w"> </span>/opt/softare/zsh/5.9/bin/zsh<span class="w"> </span>~/.local/bin/zsh
-</span></code></pre></div>
 <h5 id="building-from-source">Building from source</h5>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>mkdir<span class="w"> </span>downloads
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nb">cd</span><span class="w"> </span>downloads
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>mkdir<span class="w"> </span>downloads
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">cd</span><span class="w"> </span>downloads
 </span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>wget<span class="w"> </span>-O<span class="w"> </span>zsh.tar.xz<span class="w"> </span>https://sourceforge.net/projects/zsh/files/latest/download
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>wget<span class="w"> </span>-O<span class="w"> </span>zsh.tar.xz<span class="w"> </span>https://sourceforge.net/projects/zsh/files/latest/download
 </span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>mkdir<span class="w"> </span>zsh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unxz<span class="w"> </span>zsh.tar.xz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>zsh.tar<span class="w"> </span>-C<span class="w"> </span>zsh<span class="w"> </span>--strip-components<span class="w"> </span><span class="m">1</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nb">cd</span><span class="w"> </span>zsh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>mkdir<span class="w"> </span>zsh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unxz<span class="w"> </span>zsh.tar.xz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>zsh.tar<span class="w"> </span>-C<span class="w"> </span>zsh<span class="w"> </span>--strip-components<span class="w"> </span><span class="m">1</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nb">cd</span><span class="w"> </span>zsh
 </span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>make
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>make<span class="w"> </span>install
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>make
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>make<span class="w"> </span>install
 </span></code></pre></div>
+<p>Find configuration examples online, ie: https://thevaluable.dev/zsh-install-configure-mouseless/</p>
 <h5 id="starship">starship</h5>
 <p>To get a better prompt, you can install <a href="https://starship.rs/">starship</a>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>curl<span class="w"> </span>-sS<span class="w"> </span>https://starship.rs/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-s<span class="w"> </span>--<span class="w"> </span>--bin-dir<span class="w"> </span>~/bin/
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>curl<span class="w"> </span>-sS<span class="w"> </span>https://starship.rs/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-s<span class="w"> </span>--<span class="w"> </span>--bin-dir<span class="w"> </span>~/bin/
 </span></code></pre></div>
 <p>And add the following to your <code>~/.zshrc</code>:</p>
-<div class="language-bash highlight"><span class="filename">.zshrc</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>starship<span class="w"> </span>init<span class="w"> </span>zsh<span class="k">)</span><span class="s2">&quot;</span>
+<div class="language-bash highlight"><span class="filename">.zshrc</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>starship<span class="w"> </span>init<span class="w"> </span>zsh<span class="k">)</span><span class="s2">&quot;</span>
 </span></code></pre></div>
 <h3 id="environment-variables">Environment Variables</h3>
 <p>TBD</p>
@@ -1085,11 +1075,11 @@ probably not the right way. Building from source works though.</p>
 <p>Follow the guide at <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux">GitHub</a>.</p>
 <h3 id="ssh-config">SSH Config</h3>
 <p>Create a config file at <code>~/.ssh/config</code> and add the following lines:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Host github.com
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    HostName ssh.github.com
-</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    PreferredAuthentications publickey
-</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    IdentityFile ~/.ssh/id_ed25519
-</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    Port 443
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Host github.com
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    HostName ssh.github.com
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    PreferredAuthentications publickey
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    IdentityFile ~/.ssh/id_ed25519
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    Port 443
 </span></code></pre></div>
 
 
