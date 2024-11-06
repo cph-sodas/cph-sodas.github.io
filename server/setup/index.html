@@ -537,15 +537,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#local-environments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Local environments
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#using-your-environments" class="md-nav__link">
     <span class="md-ellipsis">
       Using your environments
@@ -804,15 +795,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#local-environments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Local environments
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#using-your-environments" class="md-nav__link">
     <span class="md-ellipsis">
       Using your environments
@@ -979,61 +961,56 @@ your project data and code in a compute project directory.</p>
 folder, or by creating them <ins>locally</ins> in a <code>.venv</code> folder in your project.</p>
 <p>TBD: Test what is fastest</p>
 <h5 id="python-projects">Python projects</h5>
+<p>To make uv work on the network drives properly, you have to change the following setting first.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export UV_LINK_MODE=symlink&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</span></code></pre></div>
 <p>To get the full benefit of <code>uv</code>, you should initialize your python projects in the desired folder. This could be <code>/projects/my_project/people/abc123/python/</code> or <code>/projects/my_project/apps/python/</code>.</p>
 <p>When you have navigated to the desired folder, you can run</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>uv<span class="w"> </span>init
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uv<span class="w"> </span>init
 </span></code></pre></div>
 <p>This will create some boiler plate, which will allow you to take advantage of
 uv's dependency management.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Specify the python version with</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uv<span class="w"> </span>init<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.9
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>uv<span class="w"> </span>init<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.9
 </span></code></pre></div>
 </div>
 <p>Then, to add a project dependency, you can run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>uv<span class="w"> </span>add<span class="w"> </span>matplotlib
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>uv<span class="w"> </span>add<span class="w"> </span>matplotlib
 </span></code></pre></div>
-<p>If you later found it it isn't needed, you can remove it with:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>uv<span class="w"> </span>remove<span class="w"> </span>matplotlib
-</span></code></pre></div>
-<p>To run your scripts, you can use the <code>uv run</code> command:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>uv<span class="w"> </span>run<span class="w"> </span>my_script.py
-</span></code></pre></div>
-<h5 id="local-environments">Local environments</h5>
-<p>To make local environments work on the projects folders (which are network
-drives), you must change a default setting by running</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export UV_LINK_MODE=symlink&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-</span></code></pre></div>
-<p>Then, in your projects app folder you can run</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>uv<span class="w"> </span>venv
-</span></code></pre></div>
+<p>This will add the dependency to the <code>uv.lock</code> and <code>pyproject.toml</code> files, and install it into the <code>venv</code>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Specify the python version with</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.9
-</span></code></pre></div>
+<p>uv stores venvs in .venv folder in the project directory, and initializes
+them automatically with the above steps. You can also create a venv
+manually by running <code>uv venv</code></p>
 </div>
-<p>which will create a local environment in the <code>.venv</code> folder.</p>
+<p>If you later found it it isn't needed for your project, you can remove it with:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>uv<span class="w"> </span>remove<span class="w"> </span>matplotlib
+</span></code></pre></div>
+<p>To run your scripts, you can use the <code>uv run</code> command:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>uv<span class="w"> </span>run<span class="w"> </span>my_script.py
+</span></code></pre></div>
 <h5 id="using-your-environments">Using your environments</h5>
 <p>First you must activate your environment.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Add a function to your to easily activate virtual environments either named or local from anywhere on the server:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;function activate() { if [ -n &quot;$1&quot; ]; then source ~/.virtualenvs/&quot;$1&quot;/bin/activate; else source ./.venv/bin/activate; fi; }&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;function activate() { if [ -n &quot;$1&quot; ]; then source ~/.virtualenvs/&quot;$1&quot;/bin/activate; else source ./.venv/bin/activate; fi; }&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
 </span></code></pre></div>
 <p>This function will activate the virtual environment in the current directory, or from the name of the virtual environment.</p>
 <p>You can then activate the environment by running <code>activate</code> or <code>activate my-project</code>.</p>
 </div>
 <h5 id="named-environments">Named environments</h5>
 <p>If you prefer named virtual environments, you can store them in <code>~/.virtualenvs/</code>.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>mkdir<span class="w"> </span>~/.virtualenvs
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mkdir<span class="w"> </span>~/.virtualenvs
 </span></code></pre></div>
 <p>Here you can create new named virtual environments</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">cd</span><span class="w"> </span>~/.virtualenvs
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>uv<span class="w"> </span>venv<span class="w"> </span>my-project
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">cd</span><span class="w"> </span>~/.virtualenvs
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>uv<span class="w"> </span>venv<span class="w"> </span>my-project
 </span></code></pre></div>
 <h5 id="jupyterlab">JupyterLab</h5>
 <div class="admonition warning">
@@ -1042,42 +1019,42 @@ drives), you must change a default setting by running</p>
 <code>uv</code> havn't added --include-deps flag yet</p>
 </div>
 <p>To install jupyterlab system-wide, we can run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>uv<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>jupyterlab
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>uv<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span>jupyterlab
 </span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;alias jlab=\&quot;jupyter-lab --port=8880 --ip=10.84.10.216 --no-browser\&quot;&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;alias jadd=\&quot;python -m ipykernel install --user --display-name \${PWD} --name \${PWD##*/}\&quot;&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;alias jlab=\&quot;jupyter-lab --port=8880 --ip=10.84.10.216 --no-browser\&quot;&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;alias jadd=\&quot;python -m ipykernel install --user --display-name \${PWD} --name \${PWD##*/}\&quot;&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
 </span></code></pre></div>
 <h4 id="zsh">zsh</h4>
 <p>In this step of the guide, we will take you throw setting up zsh
 as your default shell, and installing oh-my-zsh</p>
 <h5 id="building-from-source">Building from source</h5>
 <p>Make directories for local installations and downloads</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>mkdir<span class="w"> </span><span class="nb">local</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>mkdir<span class="w"> </span>downloads
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>mkdir<span class="w"> </span><span class="nb">local</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>mkdir<span class="w"> </span>downloads
 </span></code></pre></div>
 <p>Download the latest version of zsh</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nb">cd</span><span class="w"> </span>downloads
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>wget<span class="w"> </span>-O<span class="w"> </span>zsh.tar.xz<span class="w"> </span>https://sourceforge.net/projects/zsh/files/latest/download
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">cd</span><span class="w"> </span>downloads
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>wget<span class="w"> </span>-O<span class="w"> </span>zsh.tar.xz<span class="w"> </span>https://sourceforge.net/projects/zsh/files/latest/download
 </span></code></pre></div>
 <p>Unpack the tarball</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>mkdir<span class="w"> </span>zsh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unxz<span class="w"> </span>zsh.tar.xz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>zsh.tar<span class="w"> </span>-C<span class="w"> </span>zsh<span class="w"> </span>--strip-components<span class="w"> </span><span class="m">1</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>mkdir<span class="w"> </span>zsh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unxz<span class="w"> </span>zsh.tar.xz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>zsh.tar<span class="w"> </span>-C<span class="w"> </span>zsh<span class="w"> </span>--strip-components<span class="w"> </span><span class="m">1</span>
 </span></code></pre></div>
 <p>Build zsh from source</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nb">cd</span><span class="w"> </span>zsh
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/local
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>make
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>make<span class="w"> </span>install
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nb">cd</span><span class="w"> </span>zsh
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>./configure<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/local
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>make
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>make<span class="w"> </span>install
 </span></code></pre></div>
 <p>Remove the downloaded files</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>rm<span class="w"> </span>-rf<span class="w"> </span>~/downloads/zsh*
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>rm<span class="w"> </span>-rf<span class="w"> </span>~/downloads/zsh*
 </span></code></pre></div>
 <p>Find <a href="https://thevaluable.dev/zsh-install-configure-mouseless/">configuration examples</a> online.</p>
 <h5 id="starship">starship</h5>
 <p>To get a better prompt, you can install <a href="https://starship.rs/">starship</a>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>curl<span class="w"> </span>-sS<span class="w"> </span>https://starship.rs/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-s<span class="w"> </span>--<span class="w"> </span>--bin-dir<span class="w"> </span>~/bin/
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>curl<span class="w"> </span>-sS<span class="w"> </span>https://starship.rs/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-s<span class="w"> </span>--<span class="w"> </span>--bin-dir<span class="w"> </span>~/bin/
 </span></code></pre></div>
 <p>And add the following to your <code>~/.zshrc</code>:</p>
-<div class="language-bash highlight"><span class="filename">.zshrc</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>starship<span class="w"> </span>init<span class="w"> </span>zsh<span class="k">)</span><span class="s2">&quot;</span>
+<div class="language-bash highlight"><span class="filename">.zshrc</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>starship<span class="w"> </span>init<span class="w"> </span>zsh<span class="k">)</span><span class="s2">&quot;</span>
 </span></code></pre></div>
 <h3 id="environment-variables">Environment Variables</h3>
 <p>TBD</p>
@@ -1086,11 +1063,11 @@ as your default shell, and installing oh-my-zsh</p>
 <p>Follow the guide at <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux">GitHub</a>.</p>
 <h3 id="ssh-config">SSH Config</h3>
 <p>Create a config file at <code>~/.ssh/config</code> and add the following lines:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Host github.com
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    HostName ssh.github.com
-</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    PreferredAuthentications publickey
-</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    IdentityFile ~/.ssh/id_ed25519
-</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    Port 443
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Host github.com
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    HostName ssh.github.com
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    PreferredAuthentications publickey
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    IdentityFile ~/.ssh/id_ed25519
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    Port 443
 </span></code></pre></div>
 
 
