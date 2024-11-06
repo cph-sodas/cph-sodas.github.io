@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
     
     
       
@@ -603,6 +603,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
       Resources
@@ -777,6 +786,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
       Resources
@@ -918,6 +936,10 @@ resources. To prevent this, you can start a persistent session with <a href="#pe
 <p>Now, you can start the notebook server:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>jupyter<span class="w"> </span>notebook<span class="w"> </span>--port<span class="o">=</span><span class="m">8880</span><span class="w"> </span>--ip<span class="o">=</span><span class="m">10</span>.84.10.216<span class="w"> </span>--no-browser
 </span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Don't change the port or the url, since they are required for access to the server.</p>
+</div>
 <p>Then copy the generated link and paste it in your local computer's browsers.</p>
 <p>I.e: <code>http://10.84.10.216:8800/?token=abcd1234...</code></p>
 <h3 id="vscode">VSCode</h3>
@@ -945,6 +967,11 @@ sure that <code>ipykernel</code> (<code>uv pip install ipykernel</code>) is inst
 <p>Detach (when you are inside) the session from tmux, leaving everything running
 in the background</p>
 <p><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-b">B</kbd></span> <span class="keys"><kbd class="key-d">D</kbd></span></p>
+<h2 id="docker">Docker</h2>
+<p>The server is equipped with <a href="https://github.com/indigo-dc/udocker">udocker</a>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>module<span class="w"> </span>load<span class="w"> </span>anaconda3/2020.11
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>module<span class="w"> </span>load<span class="w"> </span>udocker
+</span></code></pre></div>
 <h2 id="resources">Resources</h2>
 <p>The <a href="https://kunet.ku.dk/work-areas/research/Research%20Infrastructure/research-it/ucph-computing-hpc-systems/Pages/default.aspx#collapse-50aac726-e136-4ede-81aa-29a158043dac">UCPH guide</a> to HPC systems</p>
 <p>Five part <a href="https://www.youtube.com/watch?v=K_JIPrcPHCg&amp;list=PL7kL5D8ITGyUO4_x5EvVmZ6_NBV0RnDF-"> video series </a> introducing Slurm</p>
@@ -978,7 +1005,7 @@ in the background</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 4, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 6, 2024</span>
   </span>
 
     
