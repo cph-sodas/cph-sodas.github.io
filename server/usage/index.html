@@ -825,17 +825,19 @@ Manager.</p>
 <h2 id="modules">Modules</h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>module<span class="w"> </span>avail
 </span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>module<span class="w"> </span>load<span class="w"> </span>&lt;module-name&gt;
+</span></code></pre></div>
 <h2 id="slurm">Slurm</h2>
 <p>Slurm is a job scheduler and resource manager for the compute resources available.</p>
 <h3 id="status">Status</h3>
 <p>To see the attached resources, you can run the following command:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sinfo<span class="w"> </span>-N<span class="w"> </span>-l
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sinfo<span class="w"> </span>-N<span class="w"> </span>-l
 </span></code></pre></div>
 <p>To see the jobs that are currently running, you can run the following command:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>squeue
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>squeue
 </span></code></pre></div>
 <p>for a specific user:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>squeue<span class="w"> </span>-u<span class="w"> </span>&lt;username&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>squeue<span class="w"> </span>-u<span class="w"> </span>&lt;username&gt;
 </span></code></pre></div>
 <h3 id="submitting-jobs">Submitting jobs</h3>
 <h4 id="batch-jobs">Batch jobs</h4>
@@ -846,49 +848,49 @@ Manager.</p>
 <li>Execution commands</li>
 </ol>
 <p>Here's a detailed example:</p>
-<div class="language-bash highlight"><span class="filename">script.sh</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ch">#!/bin/bash</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">#----------------------------------------</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># SLURM Directives</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">#----------------------------------------</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">#SBATCH --chdir=/projects/main_compute-AUDIT/    # Working directory</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">#SBATCH --job-name alphafoldtestjobname          # Job name</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1">#SBATCH --mem=50G                                # Memory requirement</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1">#SBATCH --ntasks=1                               # Number of tasks</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1">#SBATCH --cpus-per-task=1                        # CPU cores per task</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1">#SBATCH --nodes=1                                # Number of nodes</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1">#SBATCH --mail-type=begin                        # Email at job start</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="c1">#SBATCH --mail-type=end                          # Email at job end</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1">#SBATCH --mail-user=abc123@ku.dk                 # Email address</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="c1">#SBATCH --gres=gpu:1                             # GPU requirement</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="c1">#----------------------------------------</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="c1"># Environment Setup</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="c1">#----------------------------------------</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="c1"># Load required modules</span>
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>module<span class="w"> </span>load<span class="w"> </span>miniconda/4.10.4
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>conda<span class="w"> </span>activate<span class="w"> </span>alphafold
-</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
-</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="c1">#----------------------------------------</span>
-</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="c1"># Job Execution</span>
-</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="c1">#----------------------------------------</span>
-</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="c1"># Change to working directory</span>
-</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="nb">cd</span><span class="w"> </span>/projects/main_compute-AUDIT/data/alphafold
-</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>
-</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="c1"># Run the main script</span>
-</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>bash<span class="w"> </span>run_alphafold.sh<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">    </span>-d<span class="w"> </span>/projects/testproject1/data/genetic_databases/<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">    </span>-o<span class="w"> </span>/projects/testproject1/people/btj820/<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">    </span>-m<span class="w"> </span>model_1<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">    </span>-f<span class="w"> </span>example/query.fasta<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="w">    </span>-t<span class="w"> </span><span class="m">2020</span>-05-14
+<div class="language-bash highlight"><span class="filename">script.sh</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">#----------------------------------------</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># SLURM Directives</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">#----------------------------------------</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1">#SBATCH --chdir=/projects/main_compute-AUDIT/    # Working directory</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1">#SBATCH --job-name alphafoldtestjobname          # Job name</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1">#SBATCH --mem=50G                                # Memory requirement</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1">#SBATCH --ntasks=1                               # Number of tasks</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1">#SBATCH --cpus-per-task=1                        # CPU cores per task</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1">#SBATCH --nodes=1                                # Number of nodes</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="c1">#SBATCH --mail-type=begin                        # Email at job start</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="c1">#SBATCH --mail-type=end                          # Email at job end</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="c1">#SBATCH --mail-user=abc123@ku.dk                 # Email address</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c1">#SBATCH --gres=gpu:1                             # GPU requirement</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="c1">#----------------------------------------</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="c1"># Environment Setup</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="c1">#----------------------------------------</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="c1"># Load required modules</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>module<span class="w"> </span>load<span class="w"> </span>miniconda/4.10.4
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>conda<span class="w"> </span>activate<span class="w"> </span>alphafold
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="c1">#----------------------------------------</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="c1"># Job Execution</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="c1">#----------------------------------------</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="c1"># Change to working directory</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="nb">cd</span><span class="w"> </span>/projects/main_compute-AUDIT/data/alphafold
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="c1"># Run the main script</span>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>bash<span class="w"> </span>run_alphafold.sh<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">    </span>-d<span class="w"> </span>/projects/testproject1/data/genetic_databases/<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="w">    </span>-o<span class="w"> </span>/projects/testproject1/people/btj820/<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="w">    </span>-m<span class="w"> </span>model_1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="w">    </span>-f<span class="w"> </span>example/query.fasta<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="w">    </span>-t<span class="w"> </span><span class="m">2020</span>-05-14
 </span></code></pre></div>
 <p>Run the script with:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sbatch<span class="w"> </span>script.sh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sbatch<span class="w"> </span>script.sh
 </span></code></pre></div>
 <p>Once the job is submitted, you can check the status of the job with:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Detailed job information</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span>&lt;job_id&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Detailed job information</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span>&lt;job_id&gt;
 </span></code></pre></div>
 <h4 id="interactive-jobs">Interactive jobs</h4>
 <p>To start a simple interactive shell with 2 CPU cores, 5GB ram, 1 v100 GPU you
@@ -899,12 +901,12 @@ can run the following command:</p>
 switching between selecting the text and using the copy button in the top
 right corner</p>
 </div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>srun<span class="w"> </span>-w<span class="w"> </span>sodasgpun01fl<span class="w"> </span>--partition<span class="o">=</span>gpuqueue<span class="w"> </span><span class="se">\ </span><span class="c1">#(1)!</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span>--ntasks-per-node<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\ </span><span class="c1">#(2)!</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span>--mem<span class="o">=</span>5GB<span class="w"> </span><span class="se">\ </span><span class="c1">#(3)!</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span>--gres<span class="o">=</span>gpu:v100:1<span class="w"> </span><span class="se">\ </span><span class="c1">#(4)!</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span>--time<span class="o">=</span><span class="m">240</span><span class="w"> </span><span class="se">\ </span><span class="c1">#(5)!</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span>--pty<span class="w"> </span>/bin/bash<span class="w"> </span>-i<span class="w"> </span><span class="c1">#(6)!</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>srun<span class="w"> </span>-w<span class="w"> </span>sodasgpun01fl<span class="w"> </span>--partition<span class="o">=</span>gpuqueue<span class="w"> </span><span class="se">\ </span><span class="c1">#(1)!</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span>--ntasks-per-node<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\ </span><span class="c1">#(2)!</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span>--mem<span class="o">=</span>5GB<span class="w"> </span><span class="se">\ </span><span class="c1">#(3)!</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span>--gres<span class="o">=</span>gpu:v100:1<span class="w"> </span><span class="se">\ </span><span class="c1">#(4)!</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span>--time<span class="o">=</span><span class="m">240</span><span class="w"> </span><span class="se">\ </span><span class="c1">#(5)!</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span>--pty<span class="w"> </span>/bin/bash<span class="w"> </span>-i<span class="w"> </span><span class="c1">#(6)!</span>
 </span></code></pre></div>
 <ol>
 <li>Standard node and partition configuration</li>
@@ -918,27 +920,27 @@ right corner</p>
 that exiting the shell (e.g. when logging out of the server) will release the
 resources. To prevent this, you can start a persistent session with <a href="#persistent-sessions">tmux</a>.</p>
 <p>Check that you have access to the GPU by running</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>nvidia-smi
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>nvidia-smi
 </span></code></pre></div>
 <p>You will need to reload modules and/or activate environments in the new shell.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </span></code></pre></div>
 <h3 id="jupyter-notebook">Jupyter Notebook</h3>
 <p>To start a Jupyter Notebook, you need to first allocate resources on the server:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>srun<span class="w"> </span>-w<span class="w"> </span>sodasgpun01fl<span class="w"> </span>--partition<span class="o">=</span>gpuqueue<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span>--ntasks-per-node<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span>--mem<span class="o">=</span>5GB<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span>--pty<span class="w"> </span>/bin/bash<span class="w"> </span>-i
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>srun<span class="w"> </span>-w<span class="w"> </span>sodasgpun01fl<span class="w"> </span>--partition<span class="o">=</span>gpuqueue<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span>--ntasks-per-node<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span>--mem<span class="o">=</span>5GB<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span>--pty<span class="w"> </span>/bin/bash<span class="w"> </span>-i
 </span></code></pre></div>
 <p>Then, within the newly created interactive slurm session, and a folder
 containing a python uv project, run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>uv<span class="w"> </span>add<span class="w"> </span>jupyter
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>uv<span class="w"> </span>add<span class="w"> </span>jupyter
 </span></code></pre></div>
 <p>Activate the virtual environment:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </span></code></pre></div>
 <p>Now, you can start the notebook server:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>jupyter<span class="w"> </span>notebook<span class="w"> </span>--port<span class="o">=</span><span class="m">8880</span><span class="w"> </span>--ip<span class="o">=</span><span class="m">10</span>.84.10.216<span class="w"> </span>--no-browser
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>jupyter<span class="w"> </span>notebook<span class="w"> </span>--port<span class="o">=</span><span class="m">8880</span><span class="w"> </span>--ip<span class="o">=</span><span class="m">10</span>.84.10.216<span class="w"> </span>--no-browser
 </span></code></pre></div>
 <p>Then copy the generated link and paste it in your local computer's browsers.</p>
 <p>I.e: <code>http://10.84.10.216:8800/?token=abcd1234...</code></p>
@@ -950,9 +952,9 @@ server.</p>
 <p>To start a jupyter notebook on the <code>head</code> node instead, you have to specify
 a port when you access the server via ssh, and then also refer to that port
 in the <code>jupyter notebook</code> command.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8000</span>:localhost:8000<span class="w"> </span>abc123@sodashead01fl.unicph.domain
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>...
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>jupyter<span class="w"> </span>notebook<span class="w"> </span>--port<span class="o">=</span><span class="m">8000</span><span class="w"> </span>--no-browser
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8000</span>:localhost:8000<span class="w"> </span>abc123@sodashead01fl.unicph.domain
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>...
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>jupyter<span class="w"> </span>notebook<span class="w"> </span>--port<span class="o">=</span><span class="m">8000</span><span class="w"> </span>--no-browser
 </span></code></pre></div>
 </div>
 <h3 id="vscode">VSCode</h3>
@@ -964,26 +966,26 @@ above and start a jupyter session.</p>
 <p>To register a virtual environment with Jupyter, you can run the following
 command, from within your environment (that is, after activating it and making
 sure that <code>ipykernel</code> (<code>uv pip install ipykernel</code>) is installed).</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user
 </span></code></pre></div>
 <h2 id="persistent-sessions">Persistent sessions</h2>
 <p>Use tmux to create and manage persistent sessions on the server.</p>
 <p>Start a new tmux session</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>&lt;session-name&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>&lt;session-name&gt;
 </span></code></pre></div>
 <p>List tmux sessions</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>tmux<span class="w"> </span>ls
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>tmux<span class="w"> </span>ls
 </span></code></pre></div>
 <p>Attach tmux session</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>tmux<span class="w"> </span>a<span class="w"> </span>-t<span class="w"> </span>&lt;session<span class="w"> </span>name&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>tmux<span class="w"> </span>a<span class="w"> </span>-t<span class="w"> </span>&lt;session<span class="w"> </span>name&gt;
 </span></code></pre></div>
 <p>Detach (when you are inside) the session from tmux, leaving everything running
 in the background</p>
 <p><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-b">B</kbd></span> <span class="keys"><kbd class="key-d">D</kbd></span></p>
 <h2 id="docker">Docker</h2>
 <p>The server is equipped with <a href="https://github.com/indigo-dc/udocker">udocker</a>.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>module<span class="w"> </span>load<span class="w"> </span>anaconda3/2020.11
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>module<span class="w"> </span>load<span class="w"> </span>udocker
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>module<span class="w"> </span>load<span class="w"> </span>anaconda3/2020.11
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>module<span class="w"> </span>load<span class="w"> </span>udocker
 </span></code></pre></div>
 <h2 id="resources">Resources</h2>
 <p>The <a href="https://kunet.ku.dk/work-areas/research/Research%20Infrastructure/research-it/ucph-computing-hpc-systems/Pages/default.aspx#collapse-50aac726-e136-4ede-81aa-29a158043dac">UCPH guide</a> to HPC systems</p>
