@@ -105,6 +105,12 @@ Once the job is submitted, you can check the status of the job with:
 scontrol show job <job_id>
 ```
 
+Get the node information:
+
+```bash
+scontrol show node
+```
+
 #### Interactive jobs
 
 To start a simple interactive shell with 2 CPU cores, 5GB ram, 1 v100 GPU you
