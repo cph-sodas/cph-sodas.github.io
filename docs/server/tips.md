@@ -261,5 +261,5 @@ Usage:
 
 ```bash
 ls /home/ | kuids
-users | kuids
+users | tr " " "\n" | kuids
 ```
