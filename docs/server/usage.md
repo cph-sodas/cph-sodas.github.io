@@ -9,9 +9,15 @@ In addition, the server is equipped with a number of modules that can be loaded 
 
 ## Modules
 
+Modules are pre-compiled software that you can load into your shell environment.
+
+To see the available modules, you can run the following command:
+
 ```bash
 module avail
 ```
+
+And to load a module:
 
 ```bash
 module load <module-name>
