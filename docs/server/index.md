@@ -13,11 +13,6 @@ Please also consider consulting the [official UCPH documentation](https://kunet.
 
 We have also collected some general [tips & tricks](/server/tips) for working with the server and Linux.
 
-!!! note
-
-    We will have a workshop at SODAS on 08-11-2024 at 13:00, where we will go
-    through the guide and try to answer your questions.
-
 ## What's new?
 
 Compared to the old server, there are _three main differences_:
