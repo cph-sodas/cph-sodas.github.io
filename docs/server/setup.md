@@ -218,6 +218,9 @@ eval "$(starship init zsh)"
 
 ??? example
 
+    Here is an example of a `starship.toml` configuration file, it can be saved
+    in `~/.config/starship.toml`
+
     ```toml title="starship.toml"
     format = """
     [](#9A348E)\
