@@ -264,7 +264,8 @@ in the background
 
 ## Docker
 
-The server is equipped with [udocker](https://github.com/indigo-dc/udocker).
+The server is equipped with a subset of docker, called [udocker](https://github.com/indigo-dc/udocker). It requires
+the anaconda3 module to be loaded first.
 
 ```bash
 module load anaconda3/2020.11
