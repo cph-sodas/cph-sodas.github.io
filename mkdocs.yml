@@ -1,0 +1,97 @@
+site_name: sodas-docs
+site_url: https://cph-sodas.github.io
+theme:
+  name: material
+  custom_dir: overrides
+  favicon: assets/logo.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - announce.dismiss
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - navigation.footer
+    - navigation.indexes
+    - navigation.tabs
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+extra:
+  social:
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/CPH_SODAS
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/copenhagen-center-for-social-data-science-sodas/
+    - icon: fontawesome/brands/github
+      link: https://www.github.com/cph-sodas
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - javascripts/extra.js
+plugins:
+  - search
+  - social
+  - git-revision-date-localized
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tilde
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - mdx_truly_sane_lists # https://github.com/mkdocs/mkdocs/issues/545
+copyright: >
+  Copyright &copy; 2024 SODAS
+
+nav:
+  - Home: index.md
+  - Server:
+      - Overview: server/index.md
+      - Access: server/access.md
+      - Setup: server/setup.md
+      - Usage: server/usage.md
+      - Tips: server/tips.md
+#   <a href="#__consent">Change cookie settings</a>
+# extra:
+#   consent:
+#     title: Cookie consent
+#     description: >-
+#       We use cookies to recognize your repeated visits and preferences, as well
+#       as to measure the effectiveness of our documentation and whether users
+#       find what they're searching for. With your consent, you're helping us to
+#       make our documentation better.
+#     cookies:
+#       analytics:
+#         name: Google Analytics
+#         checked: false
+#       github:
+#         name: GitHub
+#         checked: false
+#     actions:
+#       - accept
+#       - reject
+#       - manage

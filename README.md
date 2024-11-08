@@ -1,18 +1,23 @@
-# sodas-ku.github.io
+# Documentation for the SODAS server
 
-## Docs
-
-The documentation site is built using [MkDocs](https://www.mkdocs.org/) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
-
-### Development
-
-The docs project source code is stored at the [sodas-docs](https://github.com/cph-sodas/sodas-docs) repo.
-
-### Deployment
-
-Deploy the docs from the `sodas-docs` repo to the `docs` branch of the this repo.
+## Installation
 
 ```bash
-make deploy
+uv venv
+source .venv/bin/activate  # linux & mac
+uv sync
 ```
 
+## Commands
+
+- `mkdocs serve` - Start the live-reloading docs server.
+
+## Deployment
+
+[github-pages](https://www.mkdocs.org/user-guide/deploying-your-docs/#github-pages)
+
+Hosted at [cph-sodas](https://github.com/cph-sodas/cph-sodas.github.io)
+
+## Other
+
+- [mkdocs documentation](https://www.mkdocs.org).
