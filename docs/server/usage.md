@@ -155,10 +155,17 @@ srun -w sodasgpun01fl --partition=gpuqueue \
   --pty /bin/bash -i
 ```
 
-Then, load the Jupyter Notebook module:
+Then, within the newly created interactive slurm session, and a folder
+containing a python uv project, run:
 
 ```bash
-module load jupyter-notebook/6.5.4
+uv add jupyter
+```
+
+Activate the virtual environment:
+
+```bash
+source .venv/bin/activate
 ```
 
 Now, you can start the notebook server:
@@ -167,17 +174,25 @@ Now, you can start the notebook server:
 jupyter notebook --port=8880 --ip=10.84.10.216 --no-browser
 ```
 
-!!! note
-
-    The `--ip` flag is required to access the server from your local computer. To above code works when you have entered an interactive slurm session, to open a notebook from the `head` server, change the IP to `10.84.10.208`
-
-!!! info
-
-    Don't change the port or the url, since they are required for access to the server.
-
 Then copy the generated link and paste it in your local computer's browsers.
 
 I.e: `http://10.84.10.216:8800/?token=abcd1234...`
+
+!!! info
+
+    To above code works when you have entered an interactive slurm session.
+    Don't change the port or the url, since they are required for access to the
+    server.
+
+    To start a jupyter notebook on the `head` node instead, you have to specify
+    a port when you access the server via ssh, and then also refer to that port
+    in the `jupyter notebook` command.
+
+    ```bash
+    ssh -L 8000:localhost:8000 abc123@sodashead01fl.unicph.domain
+    ...
+    jupyter notebook --port=8000 --no-browser
+    ```
 
 ### VSCode
 
