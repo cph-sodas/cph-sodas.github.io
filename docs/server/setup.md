@@ -16,9 +16,11 @@ abc123@sodashead01fl /projects/main_compute-AUDIT $ tree -L 1
 └── scratch
 ```
 
-Since the compute server (which is accessed via [Slurm](/server/usage#slurm)) does not
-have access to other network drives (i.e. h-drive and s-drives), you must store
-your project data and code in a compute project directory.
+!!! warning
+
+    Since the compute server (which is accessed via [Slurm](/server/usage#slurm)) does not
+    have access to other network drives (i.e. h-drive and s-drives), you must
+    store your project data and code in a compute project directory.
 
 You can make a request for a new project at the [UCPH service portal](https://serviceportal.ku.dk/HEAT/Modules/SelfService/#serviceCatalog). Select `FS-sodas` under FS system
 
