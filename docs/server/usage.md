@@ -23,6 +23,12 @@ And to load a module:
 module load <module-name>
 ```
 
+And unload again:
+
+```bash
+module unload <module-name>
+```
+
 ## Slurm
 
 Slurm is a job scheduler and resource manager for the compute resources available.
