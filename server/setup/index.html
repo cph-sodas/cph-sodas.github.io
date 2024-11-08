@@ -590,7 +590,7 @@
           <li class="md-nav__item">
   <a href="#starship" class="md-nav__link">
     <span class="md-ellipsis">
-      starship
+      Starship
     </span>
   </a>
   
@@ -848,7 +848,7 @@
           <li class="md-nav__item">
   <a href="#starship" class="md-nav__link">
     <span class="md-ellipsis">
-      starship
+      Starship
     </span>
   </a>
   
@@ -1049,13 +1049,125 @@ as your default shell, and installing oh-my-zsh</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>rm<span class="w"> </span>-rf<span class="w"> </span>~/downloads/zsh*
 </span></code></pre></div>
 <p>Find <a href="https://thevaluable.dev/zsh-install-configure-mouseless/">configuration examples</a> online.</p>
-<h5 id="starship">starship</h5>
+<h5 id="starship">Starship</h5>
 <p>To get a better prompt, you can install <a href="https://starship.rs/">starship</a>:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>curl<span class="w"> </span>-sS<span class="w"> </span>https://starship.rs/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-s<span class="w"> </span>--<span class="w"> </span>--bin-dir<span class="w"> </span>~/bin/
 </span></code></pre></div>
 <p>And add the following to your <code>~/.zshrc</code>:</p>
 <div class="language-bash highlight"><span class="filename">.zshrc</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>starship<span class="w"> </span>init<span class="w"> </span>zsh<span class="k">)</span><span class="s2">&quot;</span>
 </span></code></pre></div>
+<details class="example">
+<summary>Example</summary>
+<div class="language-toml highlight"><span class="filename">starship.toml</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="s2">[](#9A348E)</span><span class="se">\</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="s2">$username</span><span class="se">\</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="s2">$hostname</span><span class="se">\</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="s2">[](bg:#DA627D fg:#9A348E)</span><span class="se">\</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="s2">$directory</span><span class="se">\</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="s2">[](fg:#DA627D bg:#FCA17D)</span><span class="se">\</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="s2">$git_branch</span><span class="se">\</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="s2">$git_status</span><span class="se">\</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="s2">[](fg:#FCA17D bg:#86BBD8)</span><span class="se">\</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="s2">$nodejs</span><span class="se">\</span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="s2">$python</span><span class="se">\</span>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="s2">[](fg:#86BBD8 bg:#06969A)</span><span class="se">\</span>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="s2">$docker_context</span><span class="se">\</span>
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="s2">[](fg:#06969A bg:blue)</span><span class="se">\</span>
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="s2">$custom</span><span class="se">\</span>
+</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="s2">[](fg:blue) </span><span class="se">\</span>
+</span><span id="__span-22-18"><a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-22-19"><a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>
+</span><span id="__span-22-20"><a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="n">right_format</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-22-21"><a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="s2">$status $cmd_duration $time</span>
+</span><span id="__span-22-22"><a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-22-23"><a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a>
+</span><span id="__span-22-24"><a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a><span class="c1"># Disable the blank line at the start of the prompt</span>
+</span><span id="__span-22-25"><a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a><span class="n">add_newline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-22-26"><a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a>
+</span><span id="__span-22-27"><a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a><span class="c1"># You can also replace your username with a neat symbol like   or disable this</span>
+</span><span id="__span-22-28"><a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a><span class="c1"># and use the os module below</span>
+</span><span id="__span-22-29"><a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a><span class="k">[username]</span>
+</span><span id="__span-22-30"><a id="__codelineno-22-30" name="__codelineno-22-30" href="#__codelineno-22-30"></a><span class="n">show_always</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-22-31"><a id="__codelineno-22-31" name="__codelineno-22-31" href="#__codelineno-22-31"></a><span class="n">style_user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bg:#9A348E&quot;</span>
+</span><span id="__span-22-32"><a id="__codelineno-22-32" name="__codelineno-22-32" href="#__codelineno-22-32"></a><span class="n">style_root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bg:#9A348E&quot;</span>
+</span><span id="__span-22-33"><a id="__codelineno-22-33" name="__codelineno-22-33" href="#__codelineno-22-33"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[$user]($style fg:black)&quot;</span>
+</span><span id="__span-22-34"><a id="__codelineno-22-34" name="__codelineno-22-34" href="#__codelineno-22-34"></a><span class="n">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-22-35"><a id="__codelineno-22-35" name="__codelineno-22-35" href="#__codelineno-22-35"></a>
+</span><span id="__span-22-36"><a id="__codelineno-22-36" name="__codelineno-22-36" href="#__codelineno-22-36"></a><span class="k">[hostname]</span>
+</span><span id="__span-22-37"><a id="__codelineno-22-37" name="__codelineno-22-37" href="#__codelineno-22-37"></a><span class="n">ssh_symbol</span><span class="o">=</span><span class="s2">&quot;@&quot;</span>
+</span><span id="__span-22-38"><a id="__codelineno-22-38" name="__codelineno-22-38" href="#__codelineno-22-38"></a><span class="n">style</span><span class="o">=</span><span class="s2">&quot;bg:#9A348E&quot;</span>
+</span><span id="__span-22-39"><a id="__codelineno-22-39" name="__codelineno-22-39" href="#__codelineno-22-39"></a><span class="n">format</span><span class="o">=</span><span class="s2">&quot;[$ssh_symbol$hostname]($style fg:black)&quot;</span>
+</span><span id="__span-22-40"><a id="__codelineno-22-40" name="__codelineno-22-40" href="#__codelineno-22-40"></a>
+</span><span id="__span-22-41"><a id="__codelineno-22-41" name="__codelineno-22-41" href="#__codelineno-22-41"></a><span class="k">[directory]</span>
+</span><span id="__span-22-42"><a id="__codelineno-22-42" name="__codelineno-22-42" href="#__codelineno-22-42"></a><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bg:#DA627D fg:black&quot;</span>
+</span><span id="__span-22-43"><a id="__codelineno-22-43" name="__codelineno-22-43" href="#__codelineno-22-43"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[ $path ]($style)&quot;</span>
+</span><span id="__span-22-44"><a id="__codelineno-22-44" name="__codelineno-22-44" href="#__codelineno-22-44"></a><span class="n">truncation_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+</span><span id="__span-22-45"><a id="__codelineno-22-45" name="__codelineno-22-45" href="#__codelineno-22-45"></a><span class="n">truncation_symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;…/&quot;</span>
+</span><span id="__span-22-46"><a id="__codelineno-22-46" name="__codelineno-22-46" href="#__codelineno-22-46"></a>
+</span><span id="__span-22-47"><a id="__codelineno-22-47" name="__codelineno-22-47" href="#__codelineno-22-47"></a><span class="c1"># Here is how you can shorten some long paths by text replacement</span>
+</span><span id="__span-22-48"><a id="__codelineno-22-48" name="__codelineno-22-48" href="#__codelineno-22-48"></a><span class="c1"># similar to mapped_locations in Oh My Posh:</span>
+</span><span id="__span-22-49"><a id="__codelineno-22-49" name="__codelineno-22-49" href="#__codelineno-22-49"></a><span class="k">[directory.substitutions]</span>
+</span><span id="__span-22-50"><a id="__codelineno-22-50" name="__codelineno-22-50" href="#__codelineno-22-50"></a><span class="s2">&quot;Documents&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;󰈙 &quot;</span>
+</span><span id="__span-22-51"><a id="__codelineno-22-51" name="__codelineno-22-51" href="#__codelineno-22-51"></a><span class="s2">&quot;Downloads&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; &quot;</span>
+</span><span id="__span-22-52"><a id="__codelineno-22-52" name="__codelineno-22-52" href="#__codelineno-22-52"></a><span class="s2">&quot;Music&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; &quot;</span>
+</span><span id="__span-22-53"><a id="__codelineno-22-53" name="__codelineno-22-53" href="#__codelineno-22-53"></a><span class="s2">&quot;Pictures&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; &quot;</span>
+</span><span id="__span-22-54"><a id="__codelineno-22-54" name="__codelineno-22-54" href="#__codelineno-22-54"></a><span class="c1"># Keep in mind that the order matters. For example:</span>
+</span><span id="__span-22-55"><a id="__codelineno-22-55" name="__codelineno-22-55" href="#__codelineno-22-55"></a><span class="c1"># &quot;Important Documents&quot; = &quot; 󰈙 &quot;</span>
+</span><span id="__span-22-56"><a id="__codelineno-22-56" name="__codelineno-22-56" href="#__codelineno-22-56"></a><span class="c1"># will not be replaced, because &quot;Documents&quot; was already substituted before.</span>
+</span><span id="__span-22-57"><a id="__codelineno-22-57" name="__codelineno-22-57" href="#__codelineno-22-57"></a><span class="c1"># So either put &quot;Important Documents&quot; before &quot;Documents&quot; or use the substituted version:</span>
+</span><span id="__span-22-58"><a id="__codelineno-22-58" name="__codelineno-22-58" href="#__codelineno-22-58"></a><span class="c1"># &quot;Important 󰈙 &quot; = &quot; 󰈙 &quot;</span>
+</span><span id="__span-22-59"><a id="__codelineno-22-59" name="__codelineno-22-59" href="#__codelineno-22-59"></a>
+</span><span id="__span-22-60"><a id="__codelineno-22-60" name="__codelineno-22-60" href="#__codelineno-22-60"></a><span class="k">[docker_context]</span>
+</span><span id="__span-22-61"><a id="__codelineno-22-61" name="__codelineno-22-61" href="#__codelineno-22-61"></a><span class="n">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; &quot;</span>
+</span><span id="__span-22-62"><a id="__codelineno-22-62" name="__codelineno-22-62" href="#__codelineno-22-62"></a><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bg:#06969A&quot;</span>
+</span><span id="__span-22-63"><a id="__codelineno-22-63" name="__codelineno-22-63" href="#__codelineno-22-63"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;[ $symbol $context ]($style)&#39;</span>
+</span><span id="__span-22-64"><a id="__codelineno-22-64" name="__codelineno-22-64" href="#__codelineno-22-64"></a>
+</span><span id="__span-22-65"><a id="__codelineno-22-65" name="__codelineno-22-65" href="#__codelineno-22-65"></a><span class="k">[git_branch]</span>
+</span><span id="__span-22-66"><a id="__codelineno-22-66" name="__codelineno-22-66" href="#__codelineno-22-66"></a><span class="n">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-22-67"><a id="__codelineno-22-67" name="__codelineno-22-67" href="#__codelineno-22-67"></a><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bg:#FCA17D black&quot;</span>
+</span><span id="__span-22-68"><a id="__codelineno-22-68" name="__codelineno-22-68" href="#__codelineno-22-68"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;[ $symbol $branch ]($style)&#39;</span>
+</span><span id="__span-22-69"><a id="__codelineno-22-69" name="__codelineno-22-69" href="#__codelineno-22-69"></a>
+</span><span id="__span-22-70"><a id="__codelineno-22-70" name="__codelineno-22-70" href="#__codelineno-22-70"></a><span class="k">[git_status]</span>
+</span><span id="__span-22-71"><a id="__codelineno-22-71" name="__codelineno-22-71" href="#__codelineno-22-71"></a><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bg:#FCA17D black&quot;</span>
+</span><span id="__span-22-72"><a id="__codelineno-22-72" name="__codelineno-22-72" href="#__codelineno-22-72"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;[$all_status$ahead_behind ]($style)&#39;</span>
+</span><span id="__span-22-73"><a id="__codelineno-22-73" name="__codelineno-22-73" href="#__codelineno-22-73"></a>
+</span><span id="__span-22-74"><a id="__codelineno-22-74" name="__codelineno-22-74" href="#__codelineno-22-74"></a><span class="k">[nodejs]</span>
+</span><span id="__span-22-75"><a id="__codelineno-22-75" name="__codelineno-22-75" href="#__codelineno-22-75"></a><span class="n">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-22-76"><a id="__codelineno-22-76" name="__codelineno-22-76" href="#__codelineno-22-76"></a><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bg:#86BBD8&quot;</span>
+</span><span id="__span-22-77"><a id="__codelineno-22-77" name="__codelineno-22-77" href="#__codelineno-22-77"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;[ $symbol ($version) ]($style)&#39;</span>
+</span><span id="__span-22-78"><a id="__codelineno-22-78" name="__codelineno-22-78" href="#__codelineno-22-78"></a>
+</span><span id="__span-22-79"><a id="__codelineno-22-79" name="__codelineno-22-79" href="#__codelineno-22-79"></a><span class="k">[python]</span>
+</span><span id="__span-22-80"><a id="__codelineno-22-80" name="__codelineno-22-80" href="#__codelineno-22-80"></a><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bg:#86BBD8 black&quot;</span>
+</span><span id="__span-22-81"><a id="__codelineno-22-81" name="__codelineno-22-81" href="#__codelineno-22-81"></a><span class="n">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;  &quot;</span>
+</span><span id="__span-22-82"><a id="__codelineno-22-82" name="__codelineno-22-82" href="#__codelineno-22-82"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;[${symbol}($virtualenv) ]($style)&#39;</span>
+</span><span id="__span-22-83"><a id="__codelineno-22-83" name="__codelineno-22-83" href="#__codelineno-22-83"></a>
+</span><span id="__span-22-84"><a id="__codelineno-22-84" name="__codelineno-22-84" href="#__codelineno-22-84"></a><span class="k">[status]</span>
+</span><span id="__span-22-85"><a id="__codelineno-22-85" name="__codelineno-22-85" href="#__codelineno-22-85"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;[$symbol$common_meaning$signal_name$maybe_int]($style) &#39;</span>
+</span><span id="__span-22-86"><a id="__codelineno-22-86" name="__codelineno-22-86" href="#__codelineno-22-86"></a><span class="n">map_symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-22-87"><a id="__codelineno-22-87" name="__codelineno-22-87" href="#__codelineno-22-87"></a><span class="n">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-22-88"><a id="__codelineno-22-88" name="__codelineno-22-88" href="#__codelineno-22-88"></a>
+</span><span id="__span-22-89"><a id="__codelineno-22-89" name="__codelineno-22-89" href="#__codelineno-22-89"></a><span class="k">[cmd_duration]</span>
+</span><span id="__span-22-90"><a id="__codelineno-22-90" name="__codelineno-22-90" href="#__codelineno-22-90"></a><span class="n">min_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span>
+</span><span id="__span-22-91"><a id="__codelineno-22-91" name="__codelineno-22-91" href="#__codelineno-22-91"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;[$duration](bold yellow)&#39;</span>
+</span><span id="__span-22-92"><a id="__codelineno-22-92" name="__codelineno-22-92" href="#__codelineno-22-92"></a>
+</span><span id="__span-22-93"><a id="__codelineno-22-93" name="__codelineno-22-93" href="#__codelineno-22-93"></a><span class="k">[time]</span>
+</span><span id="__span-22-94"><a id="__codelineno-22-94" name="__codelineno-22-94" href="#__codelineno-22-94"></a><span class="n">disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-22-95"><a id="__codelineno-22-95" name="__codelineno-22-95" href="#__codelineno-22-95"></a><span class="n">time_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;%R&quot;</span><span class="w"> </span><span class="c1"># Hour:Minute Format</span>
+</span><span id="__span-22-96"><a id="__codelineno-22-96" name="__codelineno-22-96" href="#__codelineno-22-96"></a><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-22-97"><a id="__codelineno-22-97" name="__codelineno-22-97" href="#__codelineno-22-97"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;[  $time]($style)&#39;</span>
+</span><span id="__span-22-98"><a id="__codelineno-22-98" name="__codelineno-22-98" href="#__codelineno-22-98"></a>
+</span><span id="__span-22-99"><a id="__codelineno-22-99" name="__codelineno-22-99" href="#__codelineno-22-99"></a><span class="k">[custom.slurm]</span>
+</span><span id="__span-22-100"><a id="__codelineno-22-100" name="__codelineno-22-100" href="#__codelineno-22-100"></a><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-22-101"><a id="__codelineno-22-101" name="__codelineno-22-101" href="#__codelineno-22-101"></a><span class="s2">if [ ! -z &quot;${SLURM_JOB_ID}&quot; ]; then</span>
+</span><span id="__span-22-102"><a id="__codelineno-22-102" name="__codelineno-22-102" href="#__codelineno-22-102"></a><span class="s2">    echo &quot;󱥒 ${SLURM_JOB_ID}&quot;</span>
+</span><span id="__span-22-103"><a id="__codelineno-22-103" name="__codelineno-22-103" href="#__codelineno-22-103"></a><span class="s2">fi</span>
+</span><span id="__span-22-104"><a id="__codelineno-22-104" name="__codelineno-22-104" href="#__codelineno-22-104"></a><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-22-105"><a id="__codelineno-22-105" name="__codelineno-22-105" href="#__codelineno-22-105"></a><span class="n">when</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[ ! -z </span><span class="se">\&quot;</span><span class="s2">${SLURM_JOB_ID}</span><span class="se">\&quot;</span><span class="s2"> ]&quot;</span>
+</span><span id="__span-22-106"><a id="__codelineno-22-106" name="__codelineno-22-106" href="#__codelineno-22-106"></a><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Display current Slurm job ID&quot;</span>
+</span><span id="__span-22-107"><a id="__codelineno-22-107" name="__codelineno-22-107" href="#__codelineno-22-107"></a><span class="n">style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bg:blue black&quot;</span>
+</span><span id="__span-22-108"><a id="__codelineno-22-108" name="__codelineno-22-108" href="#__codelineno-22-108"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;[ $output ]($style)&quot;</span>
+</span></code></pre></div>
+</details>
 <h3 id="environment-variables">Environment Variables</h3>
 <p>TBD</p>
 <h2 id="github">Github</h2>
@@ -1063,11 +1175,11 @@ as your default shell, and installing oh-my-zsh</p>
 <p>Follow the guide at <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux">GitHub</a>.</p>
 <h3 id="ssh-config">SSH Config</h3>
 <p>Create a config file at <code>~/.ssh/config</code> and add the following lines:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Host github.com
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    HostName ssh.github.com
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    PreferredAuthentications publickey
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    IdentityFile ~/.ssh/id_ed25519
-</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    Port 443
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Host github.com
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    HostName ssh.github.com
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    PreferredAuthentications publickey
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    IdentityFile ~/.ssh/id_ed25519
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    Port 443
 </span></code></pre></div>
 
 
