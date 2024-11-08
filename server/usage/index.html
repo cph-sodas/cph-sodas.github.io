@@ -892,6 +892,9 @@ Manager.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Detailed job information</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span>&lt;job_id&gt;
 </span></code></pre></div>
+<p>Get the node information:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>scontrol<span class="w"> </span>show<span class="w"> </span>node
+</span></code></pre></div>
 <h4 id="interactive-jobs">Interactive jobs</h4>
 <p>To start a simple interactive shell with 2 CPU cores, 5GB ram, 1 v100 GPU you
 can run the following command:</p>
@@ -901,12 +904,12 @@ can run the following command:</p>
 switching between selecting the text and using the copy button in the top
 right corner</p>
 </div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>srun<span class="w"> </span>-w<span class="w"> </span>sodasgpun01fl<span class="w"> </span>--partition<span class="o">=</span>gpuqueue<span class="w"> </span><span class="se">\ </span><span class="c1">#(1)!</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span>--ntasks-per-node<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\ </span><span class="c1">#(2)!</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span>--mem<span class="o">=</span>5GB<span class="w"> </span><span class="se">\ </span><span class="c1">#(3)!</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span>--gres<span class="o">=</span>gpu:v100:1<span class="w"> </span><span class="se">\ </span><span class="c1">#(4)!</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span>--time<span class="o">=</span><span class="m">240</span><span class="w"> </span><span class="se">\ </span><span class="c1">#(5)!</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span>--pty<span class="w"> </span>/bin/bash<span class="w"> </span>-i<span class="w"> </span><span class="c1">#(6)!</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>srun<span class="w"> </span>-w<span class="w"> </span>sodasgpun01fl<span class="w"> </span>--partition<span class="o">=</span>gpuqueue<span class="w"> </span><span class="se">\ </span><span class="c1">#(1)!</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span>--ntasks-per-node<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\ </span><span class="c1">#(2)!</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span>--mem<span class="o">=</span>5GB<span class="w"> </span><span class="se">\ </span><span class="c1">#(3)!</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span>--gres<span class="o">=</span>gpu:v100:1<span class="w"> </span><span class="se">\ </span><span class="c1">#(4)!</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span>--time<span class="o">=</span><span class="m">240</span><span class="w"> </span><span class="se">\ </span><span class="c1">#(5)!</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span>--pty<span class="w"> </span>/bin/bash<span class="w"> </span>-i<span class="w"> </span><span class="c1">#(6)!</span>
 </span></code></pre></div>
 <ol>
 <li>Standard node and partition configuration</li>
@@ -920,27 +923,27 @@ right corner</p>
 that exiting the shell (e.g. when logging out of the server) will release the
 resources. To prevent this, you can start a persistent session with <a href="#persistent-sessions">tmux</a>.</p>
 <p>Check that you have access to the GPU by running</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>nvidia-smi
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>nvidia-smi
 </span></code></pre></div>
 <p>You will need to reload modules and/or activate environments in the new shell.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </span></code></pre></div>
 <h3 id="jupyter-notebook">Jupyter Notebook</h3>
 <p>To start a Jupyter Notebook, you need to first allocate resources on the server:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>srun<span class="w"> </span>-w<span class="w"> </span>sodasgpun01fl<span class="w"> </span>--partition<span class="o">=</span>gpuqueue<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span>--ntasks-per-node<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span>--mem<span class="o">=</span>5GB<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span>--pty<span class="w"> </span>/bin/bash<span class="w"> </span>-i
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>srun<span class="w"> </span>-w<span class="w"> </span>sodasgpun01fl<span class="w"> </span>--partition<span class="o">=</span>gpuqueue<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span>--ntasks-per-node<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span>--mem<span class="o">=</span>5GB<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span>--pty<span class="w"> </span>/bin/bash<span class="w"> </span>-i
 </span></code></pre></div>
 <p>Then, within the newly created interactive slurm session, and a folder
 containing a python uv project, run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>uv<span class="w"> </span>add<span class="w"> </span>jupyter
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>uv<span class="w"> </span>add<span class="w"> </span>jupyter
 </span></code></pre></div>
 <p>Activate the virtual environment:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </span></code></pre></div>
 <p>Now, you can start the notebook server:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>jupyter<span class="w"> </span>notebook<span class="w"> </span>--port<span class="o">=</span><span class="m">8880</span><span class="w"> </span>--ip<span class="o">=</span><span class="m">10</span>.84.10.216<span class="w"> </span>--no-browser
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>jupyter<span class="w"> </span>notebook<span class="w"> </span>--port<span class="o">=</span><span class="m">8880</span><span class="w"> </span>--ip<span class="o">=</span><span class="m">10</span>.84.10.216<span class="w"> </span>--no-browser
 </span></code></pre></div>
 <p>Then copy the generated link and paste it in your local computer's browsers.</p>
 <p>I.e: <code>http://10.84.10.216:8800/?token=abcd1234...</code></p>
@@ -952,9 +955,9 @@ server.</p>
 <p>To start a jupyter notebook on the <code>head</code> node instead, you have to specify
 a port when you access the server via ssh, and then also refer to that port
 in the <code>jupyter notebook</code> command.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8000</span>:localhost:8000<span class="w"> </span>abc123@sodashead01fl.unicph.domain
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>...
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>jupyter<span class="w"> </span>notebook<span class="w"> </span>--port<span class="o">=</span><span class="m">8000</span><span class="w"> </span>--no-browser
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ssh<span class="w"> </span>-L<span class="w"> </span><span class="m">8000</span>:localhost:8000<span class="w"> </span>abc123@sodashead01fl.unicph.domain
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>...
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>jupyter<span class="w"> </span>notebook<span class="w"> </span>--port<span class="o">=</span><span class="m">8000</span><span class="w"> </span>--no-browser
 </span></code></pre></div>
 </div>
 <h3 id="vscode">VSCode</h3>
@@ -966,26 +969,26 @@ above and start a jupyter session.</p>
 <p>To register a virtual environment with Jupyter, you can run the following
 command, from within your environment (that is, after activating it and making
 sure that <code>ipykernel</code> (<code>uv pip install ipykernel</code>) is installed).</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user
 </span></code></pre></div>
 <h2 id="persistent-sessions">Persistent sessions</h2>
 <p>Use tmux to create and manage persistent sessions on the server.</p>
 <p>Start a new tmux session</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>&lt;session-name&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>&lt;session-name&gt;
 </span></code></pre></div>
 <p>List tmux sessions</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>tmux<span class="w"> </span>ls
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>tmux<span class="w"> </span>ls
 </span></code></pre></div>
 <p>Attach tmux session</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>tmux<span class="w"> </span>a<span class="w"> </span>-t<span class="w"> </span>&lt;session<span class="w"> </span>name&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>tmux<span class="w"> </span>a<span class="w"> </span>-t<span class="w"> </span>&lt;session<span class="w"> </span>name&gt;
 </span></code></pre></div>
 <p>Detach (when you are inside) the session from tmux, leaving everything running
 in the background</p>
 <p><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-b">B</kbd></span> <span class="keys"><kbd class="key-d">D</kbd></span></p>
 <h2 id="docker">Docker</h2>
 <p>The server is equipped with <a href="https://github.com/indigo-dc/udocker">udocker</a>.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>module<span class="w"> </span>load<span class="w"> </span>anaconda3/2020.11
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>module<span class="w"> </span>load<span class="w"> </span>udocker
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>module<span class="w"> </span>load<span class="w"> </span>anaconda3/2020.11
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>module<span class="w"> </span>load<span class="w"> </span>udocker
 </span></code></pre></div>
 <h2 id="resources">Resources</h2>
 <p>The <a href="https://kunet.ku.dk/work-areas/research/Research%20Infrastructure/research-it/ucph-computing-hpc-systems/Pages/default.aspx#collapse-50aac726-e136-4ede-81aa-29a158043dac">UCPH guide</a> to HPC systems</p>
