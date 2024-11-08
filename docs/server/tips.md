@@ -82,6 +82,9 @@ btop              # Interactive process viewer
 
 ### ssh config file
 
+On your local machine which you connect from, you can create a config to save
+the ssh connection specification
+
 - create your config file `~/.ssh/config`
 - here you define different hosts to avoid writing the long server name each
   time
