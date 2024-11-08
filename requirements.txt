@@ -30,12 +30,18 @@ gitpython==3.1.43
     # via mkdocs-git-revision-date-localized-plugin
 idna==3.10
     # via requests
+importlib-metadata==8.5.0
+    # via
+    #   markdown
+    #   mkdocs
+    #   mkdocs-get-deps
 jinja2==3.1.4
     # via
     #   mkdocs
     #   mkdocs-material
 markdown==3.7
     # via
+    #   mdx-truly-sane-lists
     #   mkdocs
     #   mkdocs-material
     #   pymdown-extensions
@@ -43,6 +49,8 @@ markupsafe==3.0.2
     # via
     #   jinja2
     #   mkdocs
+mdx-truly-sane-lists==1.3
+    # via sodas-docs (pyproject.toml)
 mergedeep==1.3.4
     # via
     #   mkdocs
@@ -110,3 +118,5 @@ webencodings==0.5.1
     # via
     #   cssselect2
     #   tinycss2
+zipp==3.20.2
+    # via importlib-metadata
