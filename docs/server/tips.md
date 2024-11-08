@@ -240,19 +240,26 @@ id <username> | tr "," "\n" | grep srv-sodas
 Check users logged on the server
 
 ```bash
+users
 w
 ```
 
-Check users with access to the server
+Custom function to lookup multiple KUIDs (can be added to `.bashrc`):
 
 ```bash
-function susers() {
-  for user in /home/*; do
-      username=$(basename $user)
-      if [[ $username =~ ^[a-zA-Z]{3}[0-9]{3}$ ]]; then
-          kuid "$username"
-          echo "============================"
-      fi
+function kuids() {
+  while read -r username; do
+    if [[ $username =~ ^[a-zA-Z]{3}[0-9]{3}$ ]]; then
+      kuid "$username"
+      echo "============================"
+    fi
   done
 }
+```
+
+Usage:
+
+```bash
+ls /home/ | kuids
+users | kuids
 ```
