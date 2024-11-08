@@ -167,6 +167,10 @@ Now, you can start the notebook server:
 jupyter notebook --port=8880 --ip=10.84.10.216 --no-browser
 ```
 
+!!! note
+
+    The `--ip` flag is required to access the server from your local computer. To above code works when you have entered an interactive slurm session, to open a notebook from the `head` server, change the IP to `10.84.10.208`
+
 !!! info
 
     Don't change the port or the url, since they are required for access to the server.

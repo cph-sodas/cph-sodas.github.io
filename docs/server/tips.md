@@ -119,7 +119,9 @@ SSHPASS=$(pass kup) sshpass -e ssh sodashead
 ```
 
 - bonus:
+
   - define a script somewhere on your computer and make sure it is in your [path](https://www.digitalocean.com/community/tutorials/how-to-view-and-update-the-linux-path-environment-variable)
+
     - For instance, I have the script named `sodashead` (shown below) in my path
 
       ```bash
@@ -129,10 +131,6 @@ SSHPASS=$(pass kup) sshpass -e ssh sodashead
 
   - now you can simply type `sodashead` (or whatever your script is named) to
     connect to the server
-
-### Windows
-
-You can ssh from [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh).
 
 ## tmux
 

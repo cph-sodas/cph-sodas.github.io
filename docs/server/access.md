@@ -17,7 +17,7 @@ An SSH connection to the server can be established either through your
 
 !!! note
 
-    Windows users can use the build in command prompt, or download [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh) for a better experience.
+    Windows users can use the build in command prompt to run the following commands, or download [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh) for a better experience.
 
 ### Terminal
 
