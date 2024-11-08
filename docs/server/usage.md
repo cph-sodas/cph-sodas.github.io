@@ -13,6 +13,10 @@ In addition, the server is equipped with a number of modules that can be loaded 
 module avail
 ```
 
+```bash
+module load <module-name>
+```
+
 ## Slurm
 
 Slurm is a job scheduler and resource manager for the compute resources available.
