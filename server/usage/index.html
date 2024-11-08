@@ -936,6 +936,10 @@ resources. To prevent this, you can start a persistent session with <a href="#pe
 <p>Now, you can start the notebook server:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>jupyter<span class="w"> </span>notebook<span class="w"> </span>--port<span class="o">=</span><span class="m">8880</span><span class="w"> </span>--ip<span class="o">=</span><span class="m">10</span>.84.10.216<span class="w"> </span>--no-browser
 </span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>--ip</code> flag is required to access the server from your local computer. To above code works when you have entered an interactive slurm session, to open a notebook from the <code>head</code> server, change the IP to <code>10.84.10.208</code></p>
+</div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Don't change the port or the url, since they are required for access to the server.</p>
