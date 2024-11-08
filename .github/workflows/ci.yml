@@ -14,4 +14,4 @@ jobs:
         with:
           enable-cache: true
       - run: uv sync
-      - run: mkdocs gh-deploy --clean --force
+      - run: uv run mkdocs gh-deploy --clean --force
