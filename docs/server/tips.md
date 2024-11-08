@@ -263,3 +263,5 @@ Usage:
 ls /home/ | kuids
 users | tr " " "\n" | kuids
 ```
+
+## misc
