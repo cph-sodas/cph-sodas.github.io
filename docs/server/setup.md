@@ -202,7 +202,7 @@ rm -rf ~/downloads/zsh*
 
 Find [configuration examples](https://thevaluable.dev/zsh-install-configure-mouseless/) online.
 
-##### starship
+##### Starship
 
 To get a better prompt, you can install [starship](https://starship.rs/):
 
@@ -215,6 +215,119 @@ And add the following to your `~/.zshrc`:
 ```bash title=".zshrc"
 eval "$(starship init zsh)"
 ```
+
+??? example
+
+    ```toml title="starship.toml"
+    format = """
+    [](#9A348E)\
+    $username\
+    $hostname\
+    [](bg:#DA627D fg:#9A348E)\
+    $directory\
+    [](fg:#DA627D bg:#FCA17D)\
+    $git_branch\
+    $git_status\
+    [](fg:#FCA17D bg:#86BBD8)\
+    $nodejs\
+    $python\
+    [](fg:#86BBD8 bg:#06969A)\
+    $docker_context\
+    [](fg:#06969A bg:blue)\
+    $custom\
+    [](fg:blue) \
+    """
+
+    right_format="""
+    $status $cmd_duration $time
+    """
+
+    # Disable the blank line at the start of the prompt
+    add_newline = false
+
+    # You can also replace your username with a neat symbol like   or disable this
+    # and use the os module below
+    [username]
+    show_always = true
+    style_user = "bg:#9A348E"
+    style_root = "bg:#9A348E"
+    format = "[$user]($style fg:black)"
+    disabled = false
+
+    [hostname]
+    ssh_symbol="@"
+    style="bg:#9A348E"
+    format="[$ssh_symbol$hostname]($style fg:black)"
+
+    [directory]
+    style = "bg:#DA627D fg:black"
+    format = "[ $path ]($style)"
+    truncation_length = 3
+    truncation_symbol = "…/"
+
+    # Here is how you can shorten some long paths by text replacement
+    # similar to mapped_locations in Oh My Posh:
+    [directory.substitutions]
+    "Documents" = "󰈙 "
+    "Downloads" = " "
+    "Music" = " "
+    "Pictures" = " "
+    # Keep in mind that the order matters. For example:
+    # "Important Documents" = " 󰈙 "
+    # will not be replaced, because "Documents" was already substituted before.
+    # So either put "Important Documents" before "Documents" or use the substituted version:
+    # "Important 󰈙 " = " 󰈙 "
+
+    [docker_context]
+    symbol = " "
+    style = "bg:#06969A"
+    format = '[ $symbol $context ]($style)'
+
+    [git_branch]
+    symbol = ""
+    style = "bg:#FCA17D black"
+    format = '[ $symbol $branch ]($style)'
+
+    [git_status]
+    style = "bg:#FCA17D black"
+    format = '[$all_status$ahead_behind ]($style)'
+
+    [nodejs]
+    symbol = ""
+    style = "bg:#86BBD8"
+    format = '[ $symbol ($version) ]($style)'
+
+    [python]
+    style = "bg:#86BBD8 black"
+    symbol = "  "
+    format = '[${symbol}($virtualenv) ]($style)'
+
+    [status]
+    format = '[$symbol$common_meaning$signal_name$maybe_int]($style) '
+    map_symbol = true
+    disabled = false
+
+    [cmd_duration]
+    min_time = 500
+    format = '[$duration](bold yellow)'
+
+    [time]
+    disabled = false
+    time_format = "%R" # Hour:Minute Format
+    style = ""
+    format = '[  $time]($style)'
+
+    [custom.slurm]
+    command = """
+    if [ ! -z "${SLURM_JOB_ID}" ]; then
+        echo "󱥒 ${SLURM_JOB_ID}"
+    fi
+    """
+    when = "[ ! -z \"${SLURM_JOB_ID}\" ]"
+    description = "Display current Slurm job ID"
+    style = "bg:blue black"
+    format = "[ $output ]($style)"
+    ```
 
 ### Environment Variables
 
