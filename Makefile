@@ -14,4 +14,4 @@ sync:
 	@uv pip install -e .
 
 deploy:
-	mkdocs gh-deploy --remote-branch docs --clean
+	mkdocs gh-deploy --clean
