@@ -12,6 +12,3 @@ compile:
 sync:
 	@uv pip sync requirements*.txt
 	@uv pip install -e .
-
-deploy:
-	mkdocs gh-deploy --clean
