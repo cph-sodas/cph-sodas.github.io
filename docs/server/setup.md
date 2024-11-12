@@ -24,6 +24,28 @@ abc123@sodashead01fl /projects/main_compute-AUDIT $ tree -L 1
 
 You can make a request for a new project at the [UCPH service portal](https://serviceportal.ku.dk/HEAT/Modules/SelfService/#serviceCatalog). Select `FS-sodas` under FS system
 
+### File permissions
+
+You can change the permissions of folders you create in a project.
+
+To restrict write permissions but allow read for a folder:
+
+```bash
+chmod 755 /path/to/directory
+```
+
+To restrict read and write for all other users:
+
+```bash
+chmod 700 /path/to/directory
+```
+
+To make a folder accessible for everyone:
+
+```bash
+chmod 777 /path/to/directory
+```
+
 ## Configuration
 
 !!! tip
