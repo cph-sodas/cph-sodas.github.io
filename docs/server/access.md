@@ -7,9 +7,13 @@ look into ways of optimizing this.
 
 ## Connecting to the server
 
-First of all, you need to be connected to UCPH's network through a VPN. See the
+First of all, you need to be connected to UCPH's network through the VPN. See the
 [guides](https://kunet.ku.dk/medarbejderguide/Sider/It/Fjernadgang-vpn.aspx) on the intranet. Our friends at DIKU also have a [guide](https://github.com/diku-dk/howto/blob/main/vpn.md#accessing-the-ku-vpn-on-linux-and-macos-with-openconnect)
 for using a VPN with UCPH's network for linux and mac users.
+
+!!! warning
+
+    It is (currently) not enough to be on the cabled network at UCPH, you need to be connected to the VPN.
 
 You connect to the server using SSH. See tips on SSH [here](tips.md#ssh).
 An SSH connection to the server can be established either through your
