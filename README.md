@@ -11,7 +11,10 @@ uv sync
 ## Commands
 
 - `mkdocs serve` - Start the live-reloading docs server.
-- `make deploy` - Deploy the documentation to GitHub pages.
+
+## Deployment
+
+The documentation is automatically deployed to GitHub Pages using GitHub Actions. The deployment is triggered by pushing to the `main` branch.
 
 ## Other
 
