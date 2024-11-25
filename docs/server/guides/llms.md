@@ -52,6 +52,7 @@ From the command line:
 # Call the server using curl:
 curl -X POST "http://10.84.10.216:8880/v1/chat/completions" \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $uuid" \
   --data '{
     "model": "allenai/OLMo-7B-0724-Instruct-hf",
     "messages": [
@@ -75,7 +76,7 @@ client = OpenAI(
 completion = client.chat.completions.create(
   model="allenai/OLMo-7B-0724-Instruct-hf",
   messages=[
-    {"role": "user", "content": "Hello!"}
+    {"role": "user", "content": "Why dont scientists trust atoms?"}
   ]
 )
 
