@@ -14,20 +14,20 @@ uv add vllm setuptools
 ## Inference server
 
 On the server, in an active Slurm session, run the following command to start
-the inference server:
+the inference server with the specified model from huggingface:
 
 ```bash
 vllm serve "allenai/OLMo-7B-0724-Instruct-hf" \ #(1)!
   --host=10.84.10.216 \ #(2)!
   --port=8880 \ #(3)!
-  --download-dir=/projects/ainterviewer-AUDIT/data/.cache/huggingface \ #(4)!
+  --download-dir=/projects/<project-dir>/data/.cache/huggingface \ #(4)!
   --dtype=half #(5)!
 ```
 
 1. The model name from huggingface
 2. The ip address of the slurm gpu server
 3. The port of the slurm gpu server
-4. Local cache dir for models
+4. Local cache dir for models, remember to substitute <project-dir> with a specific project eg. `ainterviewer-AUDIT`
 5. For some models, this is needed since the GPUs on the server are a bit old
 
 !!! tip
