@@ -77,4 +77,4 @@ nav:
       - Tips: server/tips.md
       - Guides:
           - Overview: server/guides/index.md
-          - LLM: server/guides/llms.md
+          - LLMs: server/guides/llms.md
