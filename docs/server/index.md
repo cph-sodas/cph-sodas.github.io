@@ -11,7 +11,8 @@ three pages in this part of the documentation:
 
 Please also consider consulting the [official UCPH documentation](https://kunet.ku.dk/work-areas/research/Research%20Infrastructure/research-it/ucph-computing-hpc-systems/Pages/default.aspx).
 
-We have also collected some general [tips & tricks](/server/tips) for working with the server and Linux.
+We have also collected some general [tips & tricks](/server/tips) for working
+with the server and Linux, and some [guides](/server/guides) for specific tasks.
 
 ## What's new?
 
