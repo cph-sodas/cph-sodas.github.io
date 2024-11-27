@@ -110,11 +110,18 @@ Run the script with:
 sbatch script.sh
 ```
 
-Once the job is submitted, you can check the status of the job with:
+Once the job is submitted you will receive a job-id, which you can use to check the status of the job with:
 
 ```bash
 # Detailed job information
-scontrol show job <job_id>
+scontrol show job <job-id>
+```
+
+Also, the output of the job will be saved in a file with the name
+`slurm-<job-id>.out` in the working directory specified.
+
+```bash
+tail -f slurm-<job-id>.out
 ```
 
 Get the node information:
