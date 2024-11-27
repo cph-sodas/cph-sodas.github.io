@@ -81,6 +81,7 @@ Here's a detailed example:
 #SBATCH --mail-type=end                          # Email at job end
 #SBATCH --mail-user=abc123@ku.dk                 # Email address
 #SBATCH --gres=gpu:1                             # GPU requirement
+#SBATCH --time=10:00:00                          # Maximum runtime of 10 hours
 
 #----------------------------------------
 # Environment Setup
