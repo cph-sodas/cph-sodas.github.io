@@ -111,7 +111,8 @@ Run the script with:
 sbatch script.sh
 ```
 
-Once the job is submitted you will receive a job-id, which you can use to check the status of the job with:
+Once the job is submitted you will receive a job-id, which you can use to check
+the status of the job with:
 
 ```bash
 # Detailed job information
@@ -131,6 +132,12 @@ Get the node information:
 scontrol show node
 ```
 
+To stop a running job:
+
+```bash
+scancel <job-id>
+```
+
 #### Interactive jobs
 
 To start a simple interactive shell with 2 CPU cores, 5GB ram, 1 v100 GPU you
@@ -145,7 +152,7 @@ can run the following command:
 ```bash
 srun -w sodasgpun01fl --partition=gpuqueue \ #(1)!
     --ntasks-per-node=2 \ #(2)!
-    --mem=5GB \ #(3)!
+    --mem=50GB \ #(3)!
     --gres=gpu:v100:1 \ #(4)!
     --time=240 \ #(5)!
     --pty /bin/bash -i #(6)!
