@@ -1,5 +1,10 @@
 # Documentation for the SODAS server
 
+> [!IMPORTANT]  
+> Check out the branches for documentation that is not yet finished, either
+> because they need more work, or pending changes from the ucph server
+> managers.
+
 ## Installation
 
 ```bash
@@ -20,3 +25,4 @@ The documentation is automatically deployed to GitHub Pages using GitHub Actions
 
 - [mkdocs documentation](https://www.mkdocs.org).
 - [Material for MkDocs documentation](https://squidfunk.github.io/mkdocs-material/).
+
