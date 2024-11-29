@@ -78,3 +78,7 @@ nav:
       - Guides:
           - Overview: server/guides/index.md
           - LLMs: server/guides/llms.md
+  - Cheatsheets:
+      - Overview: cheatsheets/index.md
+      - Communication: cheatsheets/communication.md
+      - Ethics: cheatsheets/ethics.md

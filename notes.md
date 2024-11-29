@@ -1,6 +1,6 @@
 # Notes
 
-## Installation of software:
+## Installation of software
 
 - ZSH
 - NeoVim
