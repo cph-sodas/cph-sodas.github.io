@@ -125,6 +125,38 @@ Also, the output of the job will be saved in a file with the name
 ```bash
 tail -f slurm-<job-id>.out
 ```
+!!! tip
+
+    You can specify an output directory for your slurm outputs in your slurm script by adding:
+
+    ```bash
+    #SBATCH --output=./slurm/slurm-%j.out                           # Output file path (%j is the job ID)
+    ```
+
+    !!! note
+
+        Make sure that the directory exists before running `sbatch`  
+        Ie: `mkdir slurm`
+
+    And then see follow the output of the last running job by running:
+
+    ```bash
+    tail -F "slurm/$(ls -t ./slurm | head -n 1)"
+    ```
+
+    To make this easier, you could add a function to your `.bashrc`:
+
+    ```bash
+    echo '
+    sfollow() {
+        local latest_file=$(ls -t ./slurm/ | head -n 1)
+        tail -n +1 -F "./slurm/$latest_file"
+    }
+    ' >> ~/.bashrc
+    ```
+
+    Then just type `sfollow` to see the output of a slurm job and follow it in real time.
+
 
 Get the node information:
 
