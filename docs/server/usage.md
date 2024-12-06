@@ -125,6 +125,7 @@ Also, the output of the job will be saved in a file with the name
 ```bash
 tail -f slurm-<job-id>.out
 ```
+
 !!! tip
 
     You can specify an output directory for your slurm outputs in your slurm script by adding:
@@ -135,7 +136,7 @@ tail -f slurm-<job-id>.out
 
     !!! note
 
-        Make sure that the directory exists before running `sbatch`  
+        Make sure that the directory exists before running `sbatch`
         Ie: `mkdir slurm`
 
     And then see follow the output of the last running job by running:
@@ -156,7 +157,6 @@ tail -f slurm-<job-id>.out
     ```
 
     Then just type `sfollow` to see the output of a slurm job and follow it in real time.
-
 
 Get the node information:
 
@@ -202,6 +202,14 @@ that exiting the shell (e.g. when logging out of the server) will release the
 resources. To prevent this, you can start a persistent session with [tmux](#persistent-sessions).
 
 Check that you have access to the GPU by running
+
+!!! tip
+
+    To run a new interactive shell session in an already running slurm job:
+
+    ```bash
+    srun --jobid=<slurm-id> --pty /bin/bash -i
+    ```
 
 ```bash
 nvidia-smi
