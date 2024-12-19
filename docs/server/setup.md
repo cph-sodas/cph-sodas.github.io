@@ -22,7 +22,9 @@ abc123@sodashead01fl /projects/main_compute-AUDIT $ tree -L 1
     have access to other network drives (i.e. h-drive and s-drives), you must
     store your project data and code in a compute project directory.
 
-You can make a request for a new project at the [UCPH service portal](https://serviceportal.ku.dk/HEAT/Modules/SelfService/#serviceCatalog). Select `FS-sodas` under FS system
+You can make a request for a new project at the [UCPH service portal](https://serviceportal.ku.dk/HEAT/Modules/SelfService/#serviceCatalog). Select `FS-sodas` under FS system.
+
+After the project has been created, you probably also need to give access to yourself in [identity management](https://identity.ku.dk/).
 
 ## Configuration
 
