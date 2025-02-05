@@ -8,7 +8,7 @@ to host and run large language models locally.
 Install vllm:
 
 ```bash
-uv add vllm setuptools
+uv tool install --with setuptools vllm
 ```
 
 ## Inference server
