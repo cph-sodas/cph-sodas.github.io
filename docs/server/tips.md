@@ -2,7 +2,7 @@
 
 In general, reading the official documentation of all the tools you use in data
 science and on the computer is underrated.
-In my experience ([jsr-p](https://github.com/jsr-p)) it always pays off in the
+In my experience ([Jonas](https://github.com/jsr-p)) it always pays off in the
 long run to spend some time reading the documentation on the tools that I use.
 
 Here, we list different tips and tricks for the most common tools encountered
