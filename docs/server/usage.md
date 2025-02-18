@@ -211,6 +211,12 @@ Check that you have access to the GPU by running
     srun --jobid=<slurm-id> --pty /bin/bash -i
     ```
 
+    To request an extension of the time limit for a running job:
+
+    ```bash
+    scontrol update JobId=<job-id> TimeLimit=<new-time>
+    ```
+
 ```bash
 nvidia-smi
 ```
