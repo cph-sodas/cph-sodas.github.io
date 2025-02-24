@@ -174,6 +174,32 @@ Note that the port has changed in the command above from `2417` to `2483`.
 This is because, while writing this guide, my requested 1-hour session from
 UCloud ran out, and therefore I requested another machine and got a new port 😀
 
+## Connecting from SODAS server to UCloud server
+
+- `ssh` into the SODAS server
+- Copy your `id_rsa.pub` file into your clipboard or another location; inspect
+  it by running
+
+  ```bash
+  cat ~/.ssh/id_rsa.pub
+  ```
+
+- If you don't have a ssh key on the server, follow the guide
+  [here](https://docs.cloud.sdu.dk/hands-on/ssh-login.html#generate-a-new-ssh-key-pair)
+  or any other on how to create a ssh key pair
+- Go to the [SSH keys](https://cloud.sdu.dk/app/ssh-keys) page on UCloud and
+  paste your public key with a suitable title
+- You should now be able to `ssh` from the SODAS server to UCloud directly
+  - This allows you to use [scp](#scp) to copy files from the server to UCloud
+    directly (while respecting all data rules)
+
+### Notice
+
+- The port range that UCloud assigns has been opened from the SODAS server
+- This port range is subject to change in the future
+- If the guide above does not work, the port range may have changed; if so,
+  contact the server administrators
+
 ## Further ressources
 
 See the excellent guides at UCloud:
