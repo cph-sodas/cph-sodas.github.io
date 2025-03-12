@@ -165,7 +165,7 @@ echo "alias jadd=\"python -m ipykernel install --user --display-name \${PWD} --n
 #### zsh
 
 In this step of the guide, we will take you throw setting up zsh
-as your default shell, and installing oh-my-zsh
+as your default shell, and installing starship as your prompt.
 
 ##### Building from source
 
