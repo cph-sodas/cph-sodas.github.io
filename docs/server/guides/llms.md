@@ -1,17 +1,96 @@
 # LLMs
 
-This guide walks you through the process of starting a [vllm server](https://docs.vllm.ai/en/latest/index.html) that you can use
-to host and run large language models locally.
+This guide walks you through the process of starting a LLM server that you can
+use to host and run large language models locally on the server, while
+accessing them from your local machine.
 
-## Installation
+## ollama
 
-Install vllm:
+### Installation
+
+Ollama is already installed in the shared directory
+`/projects/main_compute-AUDIT/apps/` on the server.
+
+Should you for some reason need to install it yourself, follow the manual
+installation guide on their [github page](https://github.com/ollama/ollama/blob/main/docs/linux.md#manual-install).
+
+### Inference server
+
+To use it simple load the
+module file with `module load /projects/main_compute-AUDIT/apps/modules/ollama`,
+and then run `ollama serve` through slurms interactive session.
+
+This will start a server on `10.84.10.216:8880` (which is accessible on any
+machine connected to the KU-VPN) and store models in a shared cache at
+`/projects/main_compute-AUDIT/data/.ollama/models`
+
+### Call the API
+
+See [api documentation](https://github.com/ollama/ollama/blob/main/docs/api.md#generate-a-chat-completion), use the [ollama-sdk](https://github.com/ollama/ollama-python), or the openai client.
+
+List local models
+
+```bash
+curl http://10.84.10.216:8880/api/tags
+```
+
+Pull a models
+
+```bash
+curl http://10.84.10.216:8880/api/pull -d '{
+  "model": "gemma3:27b"
+}'
+
+```
+
+Generate a chat completion
+
+```bash
+curl http://10.84.10.216:8880/api/chat -d '{
+  "model": "gemma3:27b",
+  "messages": [
+    {
+      "role": "user",
+      "content": "why is the sky blue?"
+    }
+  ]
+}'
+
+
+
+```
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    base_url = 'http://10.84.10.216:8880/v1',
+    api_key='ollama', # required, but unused
+)
+
+response = client.chat.completions.create(
+  model="gemma3:27b",
+  messages=[
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": "Who won the world series in 2020?"},
+    {"role": "assistant", "content": "The LA Dodgers won in 2020."},
+    {"role": "user", "content": "Where was it played?"}
+  ]
+)
+print(response.choices[0].message.content)
+```
+
+## vLLM
+
+### Installation
+
+Install [vllm](https://docs.vllm.ai/en/latest/index.html):
 
 ```bash
 uv tool install --with setuptools vllm
 ```
 
-## Inference server
+### Inference server
 
 On the server, in an active Slurm session, run the following command to start
 the inference server with the specified model from huggingface:
@@ -41,7 +120,7 @@ vllm serve "allenai/OLMo-7B-0724-Instruct-hf" \ #(1)!
     ```
     then, when starting the server, you can use the `--api-key=$uuid`
 
-## Call the API
+### Call the API
 
 Then, you can consume the api through the following endpoint, from anywhere
 as long as you are connected to the VPN.
