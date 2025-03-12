@@ -20,7 +20,7 @@ To use it simple load the
 module file with `module load /projects/main_compute-AUDIT/apps/modules/ollama`,
 and then run `ollama serve` through slurms interactive session.
 
-This will start a server on `10.84.10.216:8880` (which is accessible on any
+This will start a server on `10.84.10.216:8899` (which is accessible on any
 machine connected to the KU-VPN) and store models in a shared cache at
 `/projects/main_compute-AUDIT/data/.ollama/models`
 
@@ -31,13 +31,13 @@ See [api documentation](https://github.com/ollama/ollama/blob/main/docs/api.md#g
 List local models
 
 ```bash
-curl http://10.84.10.216:8880/api/tags
+curl http://10.84.10.216:8899/api/tags
 ```
 
 Pull a models
 
 ```bash
-curl http://10.84.10.216:8880/api/pull -d '{
+curl http://10.84.10.216:8899/api/pull -d '{
   "model": "gemma3:27b"
 }'
 
@@ -46,7 +46,7 @@ curl http://10.84.10.216:8880/api/pull -d '{
 Generate a chat completion
 
 ```bash
-curl http://10.84.10.216:8880/api/chat -d '{
+curl http://10.84.10.216:8899/api/chat -d '{
   "model": "gemma3:27b",
   "messages": [
     {
@@ -64,7 +64,7 @@ curl http://10.84.10.216:8880/api/chat -d '{
 from openai import OpenAI
 
 client = OpenAI(
-    base_url = 'http://10.84.10.216:8880/v1',
+    base_url = 'http://10.84.10.216:8899/v1',
     api_key='ollama', # required, but unused
 )
 
@@ -98,7 +98,7 @@ the inference server with the specified model from huggingface:
 ```bash
 vllm serve "allenai/OLMo-7B-0724-Instruct-hf" \ #(1)!
   --host=10.84.10.216 \ #(2)!
-  --port=8880 \ #(3)!
+  --port=8899 \ #(3)!
   --download-dir=/projects/<project-dir>/data/.cache/huggingface \ #(4)!
   --dtype=half #(5)!
 ```
@@ -129,7 +129,7 @@ From the command line:
 
 ```bash
 # Call the server using curl:
-curl -X POST "http://10.84.10.216:8880/v1/chat/completions" \
+curl -X POST "http://10.84.10.216:8899/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $uuid" \
   --data '{
@@ -148,7 +148,7 @@ Or in python, using the openai client:
 ```python
 from openai import OpenAI
 client = OpenAI(
-    base_url="http://10.84.10.216:8880/v1",
+    base_url="http://10.84.10.216:8899/v1",
     api_key="token-abc123", # (1)!
 )
 
