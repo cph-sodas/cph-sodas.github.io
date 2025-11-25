@@ -29,6 +29,54 @@ And unload again:
 module unload <module-name>
 ```
 
+### udocker
+
+```bash
+module load anaconda3/2020.11
+module load udocker
+```
+
+### Using R
+
+`R` depends on other modules; hence we load those before `R`.
+
+```bash
+module load gcc/13.2.0
+module load openjdk/20.0.0
+module load R/4.4.2
+```
+
+#### Source loader script
+
+- add a helper script that loads the relevant modules
+- source the script to make the modules available
+
+```bash
+echo '#!/usr/bin/env bash
+
+module load gcc/13.2.0
+module load openjdk/20.0.0
+module load R/4.4.2' \
+  > ~/scripts/load-R.sh
+
+source ~/scripts/load-R.sh
+```
+
+#### Add minimal Rprofile
+
+- the config file below specifies where new packages to should be installed and
+  what the default CRAN mirror is
+- create the file `~/.Rprofile` and insert the lines below (with your `kuid`
+  instead of abc123)
+
+```
+# Set default library path (where packages are installed)
+.libPaths("/home/abc123/R/x86_64-pc-linux-gnu-library/4.4")
+
+# Set default CRAN mirror
+options(repos = c(CRAN = "https://cran.r-project.org"))
+```
+
 ## Slurm
 
 Slurm is a job scheduler and resource manager for the compute resources available.
@@ -337,7 +385,7 @@ module load udocker
 
 The [UCPH guide](https://kunet.ku.dk/work-areas/research/Research%20Infrastructure/research-it/ucph-computing-hpc-systems/Pages/default.aspx#collapse-50aac726-e136-4ede-81aa-29a158043dac) to HPC systems
 
-Five part [ video series ](https://www.youtube.com/watch?v=K_JIPrcPHCg&list=PL7kL5D8ITGyUO4_x5EvVmZ6_NBV0RnDF-) introducing Slurm
+Five part [video series](https://www.youtube.com/watch?v=K_JIPrcPHCg&list=PL7kL5D8ITGyUO4_x5EvVmZ6_NBV0RnDF-) introducing Slurm
 
 The official [slurm cheatsheet](https://slurm.schedmd.com/pdfs/summary.pdf)
 

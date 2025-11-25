@@ -5,7 +5,7 @@ environment on the SODAS server.
 
 ## Projects
 
-All [compute projects](https://kunet.ku.dk/work-areas/research/Research%20Infrastructure/research-it/ucph-computing-hpc-systems/Pages/default.aspx#collapse-6e12687c-613f-4ac4-9d30-696f72764925) are stored in the `/projects/ `folder.
+All [compute projects](https://kunet.ku.dk/work-areas/research/Research%20Infrastructure/research-it/ucph-computing-hpc-systems/Pages/default.aspx#collapse-6e12687c-613f-4ac4-9d30-696f72764925) are stored in the `/projects/`folder.
 
 ```bash
 abc123@sodashead01fl /projects/main_compute-AUDIT $ tree -L 1
@@ -160,6 +160,18 @@ uv tool install jupyterlab
 ```bash
 echo "alias jlab=\"jupyter-lab --port=8880 --ip=10.84.10.216 --no-browser\"" >> ~/.bashrc
 echo "alias jadd=\"python -m ipykernel install --user --display-name \${PWD} --name \${PWD##*/}\"" >> ~/.bashrc
+```
+
+#### neovim
+
+```bash
+mkdir -p ~/downloads 
+mkdir -p ~/.local/bin
+cd ~/downloads
+wget https://github.com/neovim/neovim-releases/releases/download/v0.11.3/nvim-linux-x86_64.appimage
+chmod u+x nvim-linux-x86_64.appimage
+ln -s ~/downloads/nvim-linux-x86_64.appimage ~/.local/bin/nvim
+# alternatively: mv ~/downloads/nvim-linux-x86_64.appimage ~/.local/bin/nvim
 ```
 
 #### zsh
