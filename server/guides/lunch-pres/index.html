@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.2">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jonas Skjold Raaschou-Pedersen">
+<meta name="dcterms.date" content="2025-11-25">
+
+<title>PhD Lunch Presentation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="workflow_files/libs/clipboard/clipboard.min.js"></script>
+<script src="workflow_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="workflow_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="workflow_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="workflow_files/libs/quarto-html/popper.min.js"></script>
+<script src="workflow_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="workflow_files/libs/quarto-html/anchor.min.js"></script>
+<link href="workflow_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="workflow_files/libs/quarto-html/quarto-syntax-highlighting-c6982bbdd90c704a9b15aa23d87ad911.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="workflow_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="workflow_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="workflow_files/libs/bootstrap/bootstrap-08c51c3f28a05300be652669dc15fce5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#toc" id="toc-toc" class="nav-link active" data-scroll-target="#toc">TOC</a></li>
+  <li><a href="#optimal-server-workflow" id="toc-optimal-server-workflow" class="nav-link" data-scroll-target="#optimal-server-workflow">‘Optimal’ Server Workflow</a></li>
+  <li><a href="#ez-vpn" id="toc-ez-vpn" class="nav-link" data-scroll-target="#ez-vpn">Ez VPN</a>
+  <ul>
+  <li><a href="#how-i-quickly-connect" id="toc-how-i-quickly-connect" class="nav-link" data-scroll-target="#how-i-quickly-connect">How I quickly connect</a></li>
+  </ul></li>
+  <li><a href="#sshpass-easy-connect-to-server" id="toc-sshpass-easy-connect-to-server" class="nav-link" data-scroll-target="#sshpass-easy-connect-to-server">Sshpass easy connect to server</a></li>
+  <li><a href="#use-tmux" id="toc-use-tmux" class="nav-link" data-scroll-target="#use-tmux">Use tmux</a></li>
+  <li><a href="#use-git" id="toc-use-git" class="nav-link" data-scroll-target="#use-git">Use git</a>
+  <ul>
+  <li><a href="#lazygit" id="toc-lazygit" class="nav-link" data-scroll-target="#lazygit">lazygit</a></li>
+  </ul></li>
+  <li><a href="#shell-alias" id="toc-shell-alias" class="nav-link" data-scroll-target="#shell-alias">Shell alias</a></li>
+  <li><a href="#share-files-over-ssh-with-scp" id="toc-share-files-over-ssh-with-scp" class="nav-link" data-scroll-target="#share-files-over-ssh-with-scp">Share files over ssh with scp</a>
+  <ul>
+  <li><a href="#copy-local-file-to-server" id="toc-copy-local-file-to-server" class="nav-link" data-scroll-target="#copy-local-file-to-server">Copy local file to server</a></li>
+  <li><a href="#copy-file-from-server-to-local" id="toc-copy-file-from-server-to-local" class="nav-link" data-scroll-target="#copy-file-from-server-to-local">Copy file from server to local</a></li>
+  </ul></li>
+  <li><a href="#share-folder-over-ssh-with-rsync" id="toc-share-folder-over-ssh-with-rsync" class="nav-link" data-scroll-target="#share-folder-over-ssh-with-rsync">Share folder over ssh with rsync</a>
+  <ul>
+  <li><a href="#sync-remote-to-local" id="toc-sync-remote-to-local" class="nav-link" data-scroll-target="#sync-remote-to-local">Sync remote to local</a></li>
+  <li><a href="#sync-local-to-remote" id="toc-sync-local-to-remote" class="nav-link" data-scroll-target="#sync-local-to-remote">Sync local to remote</a></li>
+  </ul></li>
+  <li><a href="#shell-history-with-fzf" id="toc-shell-history-with-fzf" class="nav-link" data-scroll-target="#shell-history-with-fzf">Shell history with fzf</a></li>
+  <li><a href="#slurm" id="toc-slurm" class="nav-link" data-scroll-target="#slurm">Slurm</a>
+  <ul>
+  <li><a href="#uv" id="toc-uv" class="nav-link" data-scroll-target="#uv">uv</a></li>
+  <li><a href="#srun" id="toc-srun" class="nav-link" data-scroll-target="#srun">srun</a>
+  <ul class="collapse">
+  <li><a href="#running-script-from-synced-folder" id="toc-running-script-from-synced-folder" class="nav-link" data-scroll-target="#running-script-from-synced-folder">Running script from synced folder</a></li>
+  </ul></li>
+  <li><a href="#jupyter" id="toc-jupyter" class="nav-link" data-scroll-target="#jupyter">Jupyter</a></li>
+  </ul></li>
+  <li><a href="#using-r-or-other-things-on-server" id="toc-using-r-or-other-things-on-server" class="nav-link" data-scroll-target="#using-r-or-other-things-on-server">Using R or other things on server</a></li>
+  <li><a href="#ucloud" id="toc-ucloud" class="nav-link" data-scroll-target="#ucloud">Ucloud</a></li>
+  <li><a href="#further-ressources" id="toc-further-ressources" class="nav-link" data-scroll-target="#further-ressources">Further ressources</a>
+  <ul>
+  <li><a href="#command-line" id="toc-command-line" class="nav-link" data-scroll-target="#command-line">Command line</a></li>
+  <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git">Git</a></li>
+  <li><a href="#tips-for-windows-users" id="toc-tips-for-windows-users" class="nav-link" data-scroll-target="#tips-for-windows-users">Tips for Windows users</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PhD Lunch Presentation</h1>
+<p class="subtitle lead">‘Optimal’ Server Workflow</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jonas Skjold Raaschou-Pedersen </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 25, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="toc" class="level2">
+<h2 class="anchored" data-anchor-id="toc">TOC</h2>
+<ul>
+<li><a href="#optimal-server-workflow">Optimal Server Workflow</a></li>
+<li><a href="#ez-vpn">Ez VPN</a></li>
+<li><a href="#sshpass-easy-connect-to-server">Sshpass easy connect to server</a></li>
+<li><a href="#use-tmux">Use tmux</a></li>
+<li><a href="#use-git">Use git</a></li>
+<li><a href="#shell-alias">Shell alias</a></li>
+<li><a href="#share-files-over-ssh-with-scp">Share files over ssh with scp</a></li>
+<li><a href="#share-folder-over-ssh-with-rsync">Share folder over ssh with rsync</a></li>
+<li><a href="#shell-history-with-fzf">Shell history with fzf</a></li>
+<li><a href="#slurm">Slurm</a></li>
+<li><a href="#using-r-or-other-things-on-server">Using R or other things on server</a></li>
+<li><a href="#ucloud">Ucloud</a></li>
+<li><a href="#further-ressources">Further ressources</a></li>
+</ul>
+</section>
+<section id="optimal-server-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="optimal-server-workflow">‘Optimal’ Server Workflow</h2>
+<ul>
+<li>‘Optimal’ for me — Many roads lead to Rome</li>
+<li>We have a website <a href="https://cph-sodas.github.io/">https://cph-sodas.github.io/</a> with different guides for e.g.
+<ul>
+<li>Access</li>
+<li>Setup</li>
+<li>Usage</li>
+<li>Misc. tips</li>
+</ul></li>
+</ul>
+</section>
+<section id="ez-vpn" class="level2">
+<h2 class="anchored" data-anchor-id="ez-vpn">Ez VPN</h2>
+<ul>
+<li>I use <a href="https://github.com/diku-dk/howto/blob/main/vpn.md#accessing-the-ku-vpn-on-linux-and-macos-with-openconnect">OpenConnect</a>
+<ul>
+<li>Does the same things as the Cisco GUI — you can use Cisco if you like</li>
+</ul></li>
+<li>Works on MacOS and Linux</li>
+<li>Windows users, consider using <a href="https://learn.microsoft.com/en-us/windows/wsl/install">Windows Subsystem for Linux (WSL)</a> when interacting with the server (and terminal in general)
+<ul>
+<li>See also <a href="#tips-for-windows-users">Tips for Windows users</a></li>
+</ul></li>
+</ul>
+<section id="how-i-quickly-connect" class="level3">
+<h3 class="anchored" data-anchor-id="how-i-quickly-connect">How I quickly connect</h3>
+<ul>
+<li>I use the <a href="https://www.passwordstore.org/">the standard unix password manager</a> to store my KU user and password
+<ul>
+<li>User stored as <code>kua</code>; password as <code>kup</code></li>
+</ul></li>
+<li>Typing <code>pass kua</code> yields my user to <a href="https://www.wikiwand.com/en/articles/Standard_streams">stdout</a></li>
+<li>I can pipe my password into the vpn command and provide the user through <a href="http://www.compciv.org/topics/bash/variables-and-substitution/">command substitution</a></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pass</span> kup <span class="kw">|</span> <span class="fu">sudo</span> openconnect vpn.ku.dk <span class="at">--user</span><span class="op">=</span><span class="st">"</span><span class="va">$(</span><span class="ex">pass</span> kua<span class="va">)</span><span class="st">"</span> <span class="at">--passwd-on-stdin</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>I have saved this script as <code>vpnku</code> in folder <code>/home/jsr-p/scripts</code> that is in my <a href="https://www.wikiwand.com/en/articles/PATH_(variable)">PATH</a> (variable)</li>
+<li>Hence I can simply type <code>vpnku</code>, feel my phone vibrate in the pocket, accept and be on the KU network</li>
+<li>Ez</li>
+</ul>
+<hr>
+<p>Stuff to read up on:</p>
+<ul>
+<li><a href="https://www.wikiwand.com/en/articles/Command_substitution">Command substitution</a>
+<ul>
+<li><a href="http://www.compciv.org/topics/bash/variables-and-substitution/">Guide</a></li>
+</ul></li>
+<li><a href="https://www.geeksforgeeks.org/linux-unix/piping-in-unix-or-linux/">Pipe Unix</a>
+<ul>
+<li><a href="https://www.wikiwand.com/en/articles/Pipeline_(Unix)">Wiki</a></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="sshpass-easy-connect-to-server" class="level2">
+<h2 class="anchored" data-anchor-id="sshpass-easy-connect-to-server">Sshpass easy connect to server</h2>
+<ul>
+<li><p>I use a ssh alias for the sodas server, <code>sodashead</code></p></li>
+<li><p>Inside <code>~/.ssh/config</code>:</p></li>
+</ul>
+<pre><code>Host sodashead
+  HostName sodashead01fl.unicph.domain
+  User &lt;KU-USER&gt;
+  LocalForward 8888:127.0.0.1 8888 
+  IdentityFile ~/.ssh/id_ed25519
+  SetEnv TERM=xterm-256color
+  IdentitiesOnly yes</code></pre>
+<ul>
+<li>See the <a href="https://cph-sodas.github.io/server/access/#ssh">sodas docs</a> for details on:
+<ul>
+<li>Port-forwarding (the <code>8888:127.0.0.1 8888</code> line)</li>
+<li>ssh keys (the <code>~/.ssh/id_ed25519</code> line)</li>
+</ul></li>
+<li>With the ssh alias I can type <code>ssh sodashead</code> to connect to the server instead of <code>ssh sodashead01fl.unicph.domain</code></li>
+<li>I don’t want to type the password all the time when using <code>ssh</code> and friends</li>
+<li>Hence I use the <a href="https://linux.die.net/man/1/sshpass">sshpass</a> command-line utility to provide my password to the <code>ssh</code> command non-interactively
+<ul>
+<li><a href="https://formulae.brew.sh/formula/sshpass">Homebrew</a></li>
+</ul></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env bash</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">SSHPASS</span><span class="op">=</span><span class="va">$(</span><span class="ex">pass</span> kup<span class="va">)</span> <span class="ex">sshpass</span> <span class="at">-e</span> ssh sodashead</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Save the script as <code>sodashead</code> on my computer</li>
+<li>Typing <code>sodashead</code> executes the script, and if connected to vpn, yields a nice hello message from KU IT :=)</li>
+</ul>
+</section>
+<section id="use-tmux" class="level2">
+<h2 class="anchored" data-anchor-id="use-tmux">Use tmux</h2>
+<ul>
+<li>Want to be able to have multiple terminals sessions on the server</li>
+<li><a href="https://github.com/tmux/tmux/wiki">tmux</a>, the great terminal multiplexer, allows us to do exactly this</li>
+<li>Read the manual page for the <a href="https://man7.org/linux/man-pages/man1/tmux.1.html#DEFAULT_KEY_BINDINGS">keybindings</a>
+<ul>
+<li><p>Spltting panes, <code>&lt;prefix&gt;</code>+:</p>
+<pre><code>"           Split the current pane into two, top and bottom.
+%           Split the current pane into two, left and right.</code></pre></li>
+</ul></li>
+<li>One <strong>plugin</strong> for tmux I recommend is <a href="https://github.com/tmux-plugins/tmux-pain-control">tmux-pain-control</a>
+<ul>
+<li>Allows us to split panes with:
+<ul>
+<li><code>&lt;prefix&gt;+|</code> - split into left and right</li>
+<li><code>&lt;prefix&gt;+-</code> - split into top and bottom</li>
+</ul></li>
+<li>More intuitive :)</li>
+</ul></li>
+</ul>
+</section>
+<section id="use-git" class="level2">
+<h2 class="anchored" data-anchor-id="use-git">Use git</h2>
+<ul>
+<li>God gave us life — <a href="https://www.wikiwand.com/en/articles/Linus_Torvalds">Linus Thorvalds</a> gave us Linux and Git 🙏</li>
+<li>Use <code>git</code>!</li>
+</ul>
+<section id="lazygit" class="level3">
+<h3 class="anchored" data-anchor-id="lazygit">lazygit</h3>
+<ul>
+<li>A nice TUI for using <code>git</code></li>
+<li>We can download a release from <a href="https://github.com/jesseduffield/lazygit/releases">github</a>
+<ul>
+<li>Then unpack it with <code>tar</code></li>
+<li>Move the binary to <code>~/.local/bin</code> which should be in your <code>PATH</code>
+<ul>
+<li><p>If not:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Paste this to your: ~/.bashrc</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> <span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span><span class="st">"</span><span class="va">$HOME</span><span class="st">/.local/bin:</span><span class="va">$HOME</span><span class="st">/bin:</span><span class="va">$PATH</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ul></li>
+</ul></li>
+</ul>
+<hr>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/downloads</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/downloads</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://github.com/jesseduffield/lazygit/releases/download/v0.56.0/lazygit_0.56.0_linux_x86_64.tar.gz</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> xvf lazygit_0.56.0_linux_x86_64.tar.gz</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> lazygit ~/.local/bin/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="shell-alias" class="level2">
+<h2 class="anchored" data-anchor-id="shell-alias">Shell alias</h2>
+<ul>
+<li><p>Tedious to type out long commands all the time</p></li>
+<li><p>Example aliases:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> c=<span class="st">"clear"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> e=<span class="st">"exit"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> senv=<span class="st">"source .venv/bin/activate"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ul>
+</section>
+<section id="share-files-over-ssh-with-scp" class="level2">
+<h2 class="anchored" data-anchor-id="share-files-over-ssh-with-scp">Share files over ssh with scp</h2>
+<ul>
+<li>Export <code>SSHPASS</code> in your local shell</li>
+<li>E.g.:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">SSHPASS</span><span class="op">=</span><span class="va">$(</span><span class="ex">pass</span> kup<span class="va">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="copy-local-file-to-server" class="level3">
+<h3 class="anchored" data-anchor-id="copy-local-file-to-server">Copy local file to server</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># syntax: sscp local-file host-alias:remote-folder</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">sshpass</span> <span class="at">-e</span> scp workflow.html sodashead:/home/fjr906/phd-lunch</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>or</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> sscp=<span class="st">"sshpass -e scp"</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">sscp</span> workflow.html sodashead:/home/fjr906/phd-lunch</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="copy-file-from-server-to-local" class="level3">
+<h3 class="anchored" data-anchor-id="copy-file-from-server-to-local">Copy file from server to local</h3>
+<p>Using alias from above:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># syntax: sscp host-alias:remote-file local-folder</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">sscp</span> sodashead:/home/fjr906/phd-lunch/research-secrets/phone-numbers-nature-editors.txt .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="share-folder-over-ssh-with-rsync" class="level2">
+<h2 class="anchored" data-anchor-id="share-folder-over-ssh-with-rsync">Share folder over ssh with rsync</h2>
+<ul>
+<li>Install <code>rsync</code> locally on your computer</li>
+<li><a href="https://www.wikiwand.com/en/articles/Rsync">rsync</a>
+<ul>
+<li><a href="https://formulae.brew.sh/formula/rsync">homebrew</a></li>
+</ul></li>
+</ul>
+<section id="sync-remote-to-local" class="level3">
+<h3 class="anchored" data-anchor-id="sync-remote-to-local">Sync remote to local</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> rsdir=<span class="st">"sshpass -e rsync -av"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or: rsdir sodashead:phd-lunch/research-secrets .</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">rsdir</span> sodashead:/home/fjr906/phd-lunch/research-secrets .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="sync-local-to-remote" class="level3">
+<h3 class="anchored" data-anchor-id="sync-local-to-remote">Sync local to remote</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rsdir</span> scripts-research sodashead:phd-lunch</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="shell-history-with-fzf" class="level2">
+<h2 class="anchored" data-anchor-id="shell-history-with-fzf">Shell history with fzf</h2>
+<ul>
+<li><a href="https://junegunn.github.io/fzf/installation/">fzf</a> — 🫡</li>
+<li>Taken from my <code>~/.bashrc</code> config file</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bind to Ctrl+r, Ctrl+j, Ctrl+k</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">bind</span> <span class="at">-x</span> <span class="st">'"\C-r": fzf_select_command'</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">FZF_DEFAULT_OPTS</span><span class="op">=</span><span class="st">'-i --height=50% --layout reverse'</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">FZF_DEFAULT_OPTS</span><span class="op">=</span><span class="st">"</span><span class="va">$FZF_DEFAULT_OPTS</span><span class="st"> --bind=ctrl-j:down,ctrl-k:up"</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the fzf_select_command function</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">fzf_select_command()</span> <span class="kw">{</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="bu">local</span> <span class="va">selected_command</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="va">selected_command</span><span class="op">=</span><span class="va">$(</span><span class="fu">tac</span> ~/.bash_history <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'!seen[$0]++'</span> <span class="kw">|</span> <span class="ex">fzf</span><span class="va">)</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="bu">[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$selected_command</span><span class="st">"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="va">READLINE_LINE</span><span class="op">=</span><span class="st">"</span><span class="va">${READLINE_LINE}${selected_command}</span><span class="st">"</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="va">READLINE_POINT</span><span class="op">=</span><span class="va">${</span><span class="op">#</span><span class="va">READLINE_LINE}</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">fi</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><strong>Exercise</strong>:
+<ol type="1">
+<li>Download a <code>fzf</code> binary from the <a href="https://github.com/junegunn/fzf/releases">github release page</a></li>
+<li>Unpack it with <code>tar</code></li>
+<li>Move it to your <code>~/.local/bin</code></li>
+<li>Ascend with <code>fzf</code></li>
+</ol></li>
+</ul>
+</section>
+<section id="slurm" class="level2">
+<h2 class="anchored" data-anchor-id="slurm">Slurm</h2>
+<section id="uv" class="level3">
+<h3 class="anchored" data-anchor-id="uv">uv</h3>
+<ul>
+<li>For Python scripts I only use <code>uv</code></li>
+<li>For installation instructions, see <a href="https://cph-sodas.github.io/server/setup/#uv">sodas docs</a></li>
+</ul>
+</section>
+<section id="srun" class="level3">
+<h3 class="anchored" data-anchor-id="srun">srun</h3>
+<p>Allocate an interactive shell on the server with:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">srun</span> <span class="at">-w</span> sodasgpun01fl <span class="at">--ntasks-per-node</span><span class="op">=</span>2 <span class="at">--mem</span><span class="op">=</span>5GB <span class="at">--time</span><span class="op">=</span>240 <span class="at">--pty</span> /bin/bash <span class="at">-i</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="running-script-from-synced-folder" class="level4">
+<h4 class="anchored" data-anchor-id="running-script-from-synced-folder">Running script from synced folder</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">❯</span> ls <span class="at">-1</span> scripts-research</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">decision_tree_example.py</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">dml_example_ate.py</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Hence on server:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run decision_tree_example.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="sync-output-back" class="level5">
+<h5 class="anchored" data-anchor-id="sync-output-back">Sync output back</h5>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rsdir</span> sodashead:phd-lunch/scripts-research .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Hence locally:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">❯</span> ls <span class="at">-1</span> scripts-research/figs</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ex">iris_dt2.png</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="ex">iris_dt.png</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+</section>
+<section id="jupyter" class="level3">
+<h3 class="anchored" data-anchor-id="jupyter">Jupyter</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run jupyter-lab <span class="at">--port</span> 8880 <span class="at">--ip</span><span class="op">=</span>10.84.10.216 <span class="at">--no-browser</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="using-r-or-other-things-on-server" class="level2">
+<h2 class="anchored" data-anchor-id="using-r-or-other-things-on-server">Using R or other things on server</h2>
+<ul>
+<li>See the <a href="https://cph-sodas.github.io/server/usage/?h=r#using-r">sodas docs</a></li>
+</ul>
+</section>
+<section id="ucloud" class="level2">
+<h2 class="anchored" data-anchor-id="ucloud">Ucloud</h2>
+<ul>
+<li>See the <a href="https://cph-sodas.github.io/server/guides/ucloud/">sodas docs</a></li>
+</ul>
+</section>
+<section id="further-ressources" class="level2">
+<h2 class="anchored" data-anchor-id="further-ressources">Further ressources</h2>
+<p>Below are some miscellaneous links that you might find useful.</p>
+<section id="command-line" class="level3">
+<h3 class="anchored" data-anchor-id="command-line">Command line</h3>
+<p>If you want to learn more about the command line see e.g.:</p>
+<ul>
+<li><a href="https://jeroenjanssens.com/dsatcl/chapter-1-introduction#what-is-the-command-line">Data Science at the Command Line</a></li>
+<li><a href="https://missing.csail.mit.edu/2020/course-shell/">MIT Missing Semester</a></li>
+</ul>
+</section>
+<section id="git" class="level3">
+<h3 class="anchored" data-anchor-id="git">Git</h3>
+<ul>
+<li><a href="https://git-scm.com/book/en/v2">Git Book</a></li>
+<li><a href="https://github.com/jesseduffield/lazygit">Lazygit</a> (what I use besides the command line interface of <code>git</code>)</li>
+</ul>
+</section>
+<section id="tips-for-windows-users" class="level3">
+<h3 class="anchored" data-anchor-id="tips-for-windows-users">Tips for Windows users</h3>
+<p>If you are a Windows users see Grant McDermott’s (Principal Economist at Amazon) slides <a href="https://raw.githack.com/uo-ec607/lectures/master/03-shell/03-shell.html#146">here</a> for two ways to get the Unix shell (which is what Mac and Linux users have by default) on Windows. Try following <a href="https://grantmcdermott.com/">Grant McDermott’s</a> advice in his slides and install <a href="https://learn.microsoft.com/en-us/windows/wsl/install">WSL</a>.</p>
+<p>If you feel even more adventurous you can try installing a Linux distribution. This is the proper way to get the full Unix experience. For instance, you can try dual-booting <a href="https://help.ubuntu.com/community/WindowsDualBoot">Ubuntu</a> or go directly to <a href="https://archlinux.org/">this</a> (don’t hesitate to ask me for details if you are interested); you won’t regret it.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
